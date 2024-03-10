@@ -9,6 +9,7 @@ import { Col, Row } from "reactstrap";
 import OrderYazilar from "../components/OrderYazilar";
 import NameInput from "../components/NameInput";
 import { useState } from "react";
+import HeaderNav from "../components/HeaderNav";
 
 export default function Order() {
   const [selectedSize, setSelectedSize] = useState("");
@@ -44,15 +45,9 @@ export default function Order() {
 
   return (
     <div className="d-flex  flex-column">
-      <Row className="mb-3">
-        <Col md={4} />
-        <Col md={4}>
-          <Header />
-        </Col>
-        <Col md={4} />
-      </Row>
+      <HeaderNav />
 
-      <Row>
+      <Row className="mt-3">
         <Col md={4} />
         <Col md={4}>
           <OrderYazilar />
@@ -60,7 +55,7 @@ export default function Order() {
         <Col md={4} />
       </Row>
 
-      <Row className="mb-3">
+      <Row className=" mb-3">
         <Col md={4} />
         <Col md={2}>
           <PizzaBoyutu onChange={handleSizeChange} boyutError={isSizeError} />

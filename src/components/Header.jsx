@@ -2,13 +2,10 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div>
-      <p>Teknolojik Yemekler</p>
-      <nav>
-        <Link to={"/Home"}>Anasayfa -</Link>
-        <Link>Seçenekler -</Link>
-        <Link>Sipariş Oluştur</Link>
-      </nav>
+    <div className="header-container">
+      <div className="header-title">
+        <p>Teknolojik Yemekler</p>
+      </div>
     </div>
   );
 }

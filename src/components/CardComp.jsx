@@ -12,12 +12,26 @@ function CardComp({ isDisabled }) {
     <div>
       <Card>
         <CardBody>
-          <CardTitle tag="h5">Sipariş Toplamı</CardTitle>
-          <CardText>Seçimler: 25₺</CardText>
-          <CardText>Toplam: 110.50₺</CardText>
-          <Button disabled={isDisabled}>SİPARİŞ VER</Button>
+          <CardTitle className="order-card-title">Sipariş Toplamı</CardTitle>
+          <div className="d-flex justify-content-between align-items-center">
+            <CardText className="order-card-secimler mb-0">Seçimler </CardText>
+            <CardText className="order-card-secimler mb-0">25₺</CardText>
+          </div>
+          <div className="d-flex justify-content-between align-items-center mt-2">
+            <CardText className="order-card-toplam mb-0">Toplam </CardText>
+            <CardText className="order-card-toplam mb-0">110.50₺</CardText>
+          </div>
         </CardBody>
       </Card>
+      <Button
+        style={{ borderRadius: "4px", paddingTop: "1px" }}
+        type="button"
+        color="warning"
+        className="order-card-button"
+        disabled={isDisabled}
+      >
+        SİPARİŞ VER
+      </Button>
     </div>
   );
 }

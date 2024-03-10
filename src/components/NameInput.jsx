@@ -2,7 +2,7 @@ import { FormGroup, Input, Label } from "reactstrap";
 
 function NameInput({ onChange, nameError }) {
   return (
-    <div>
+    <div className="order-name">
       <FormGroup>
         <Label for="name">
           İsim: {nameError && <span className="text-danger">*</span>}

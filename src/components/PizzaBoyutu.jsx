@@ -1,9 +1,11 @@
 function PizzaBoyutu({ onChange, boyutError }) {
   return (
     <div>
-      <p>Boyut Seç {boyutError && <span className="text-danger">*</span>}</p>
+      <div className="boyut-title">
+        <p>Boyut Seç {boyutError && <span className="text-danger">*</span>}</p>
+      </div>
       <form>
-        <div>
+        <div className="boyut-options">
           <label>
             <input
               type="radio"
@@ -14,13 +16,13 @@ function PizzaBoyutu({ onChange, boyutError }) {
             Küçük
           </label>
         </div>
-        <div>
+        <div className="boyut-options">
           <label>
             <input type="radio" name="boyut" value="orta" onChange={onChange} />
             Orta
           </label>
         </div>
-        <div>
+        <div className="boyut-options">
           <label>
             <input
               type="radio"

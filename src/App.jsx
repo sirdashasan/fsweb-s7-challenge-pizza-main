@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div>
-      <Route exact path="/home">
+      <Route exact path="/">
         <Home />
       </Route>
       <Route path="/order">

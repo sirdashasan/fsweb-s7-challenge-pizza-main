@@ -2,7 +2,7 @@ import { FormGroup, Input, Label } from "reactstrap";
 
 function SiparisNotu() {
   return (
-    <div>
+    <div className="order-not">
       <div>
         <FormGroup>
           <Label for="siparisNotu">Sipariş Notu:</Label>

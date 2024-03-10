@@ -34,14 +34,16 @@ function Malzemeler({
 
   return (
     <div>
-      <div>
+      <div className="malzemeler-title">
         <p>
           Ek Malzemeler{" "}
           {malzemelerError && <span className="text-danger">*</span>}
         </p>
+      </div>
+      <div className="malzemeler-yazi">
         <p>En Fazla 10 malzeme seçebilirsiniz. 5₺</p>
       </div>
-      <Row form>
+      <Row form className="malzemeler-row">
         {malzemeler.map((item, i) => (
           <Col md={4} key={i} className="mb-2">
             <label className="d-block">

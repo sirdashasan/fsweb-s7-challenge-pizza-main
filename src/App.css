@@ -1,0 +1,236 @@
+.header-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  height: 120px;
+}
+
+.header-nav-container {
+  background-color: #ce2829;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  height: 120px;
+}
+
+.header-title p {
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 20px;
+  font-family: "Barlow", sans-serif;
+}
+
+.header-nav {
+  position: absolute;
+  top: 80px;
+  left: 515px;
+  font-weight: 300;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.order-title {
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 10px;
+}
+
+.order-fiyat {
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.order-yazilar {
+  font-family: "Roboto Condensed", sans-serif;
+  color: #5f5f5f;
+  margin-bottom: 35px;
+}
+
+.order-yazilar p {
+  font-size: 15px;
+}
+
+.boyut-title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.boyut-options {
+  font-family: "Roboto Condensed", sans-serif;
+  color: #5f5f5f;
+  margin-bottom: 8px;
+}
+
+.boyut-options label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.boyut-options label {
+  vertical-align: middle;
+}
+
+.boyut-options input[type="radio"] {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.hamur-title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.malzemeler-title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.malzemeler-yazi {
+  font-family: "Roboto Condensed", sans-serif;
+  color: #5f5f5f;
+}
+
+.malzemeler-row {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  color: #5f5f5f;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.malzemeler-row label {
+  margin-bottom: 8px;
+}
+
+.malzemeler-row input[type="checkbox"] {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.order-name {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.order-not {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.order-adet-yazi {
+  padding: 4px 10px;
+  border: 1px solid grey;
+  border-radius: 0px;
+  width: 30px;
+  height: 32px;
+  text-align: center;
+  background-color: white;
+  font-size: 14px;
+}
+.order-card-title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.order-card-secimler {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  color: #5f5f5f;
+}
+
+.order-card-toplam {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  color: #ce2829;
+}
+
+.order-card-button {
+  width: calc(100% + 0px);
+  margin: 0;
+  height: 30px;
+  margin-bottom: 40px;
+}
+
+.success-container {
+  background-color: #ce2829;
+  color: white;
+  min-height: 100vh;
+}
+
+.success-yazi {
+  font-family: "Barlow-Regular", sans-serif;
+  font-weight: 100;
+  font-size: 80px;
+  background-color: #ce2829;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.home-container {
+  background-image: url("/assets/mile1-assets/home-banner.png");
+  color: white;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-yazi {
+  font-family: "Barlow-Regular", sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.home-button {
+  display: flex;
+  justify-content: center;
+  font-family: "Barlow", sans-serif;
+  font-weight: bold;
+  height: 40px;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url(./fonts/RobotoCondensed-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Barlow-Regular";
+  src: url(./fonts/Barlow-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: url(./fonts/Barlow-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Quattrocento";
+  src: url(./fonts/Quattrocento-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Satisfy";
+  src: url(./fonts/Satisfy-Regular.ttf);
+}
