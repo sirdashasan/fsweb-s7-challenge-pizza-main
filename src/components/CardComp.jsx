@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "reactstrap";
 
-function CardComp({ isDisabled }) {
+function CardComp({ isDisabled, handleSubmit }) {
   return (
     <div>
       <Card>
@@ -29,6 +29,7 @@ function CardComp({ isDisabled }) {
         color="warning"
         className="order-card-button"
         disabled={isDisabled}
+        onClick={handleSubmit}
       >
         SİPARİŞ VER
       </Button>

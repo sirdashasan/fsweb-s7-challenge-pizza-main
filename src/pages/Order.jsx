@@ -10,6 +10,7 @@ import OrderYazilar from "../components/OrderYazilar";
 import NameInput from "../components/NameInput";
 import { useState } from "react";
 import HeaderNav from "../components/HeaderNav";
+import axios from "axios";
 
 export default function Order() {
   const [selectedSize, setSelectedSize] = useState("");
@@ -24,6 +25,8 @@ export default function Order() {
 
   const [name, setName] = useState("");
   const [isNameError, setIsNameError] = useState(true);
+
+  const [specialNote, setSpecialNote] = useState("");
 
   const handleSizeChange = (e) => {
     setSelectedSize(e.target.value);
@@ -40,8 +43,33 @@ export default function Order() {
     setIsNameError(e.target.value.length < 3);
   };
 
+  const handleSpecialNoteChange = (e) => {
+    setSpecialNote(e.target.value);
+  };
+
   const isOrderButtonDisabled =
     !selectedSize || !selectedDough || isIngredientsError || isNameError;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = {
+      isim: name,
+      boyut: selectedSize,
+      hamur: selectedDough,
+      malzemeler: selectedIngredients,
+      ozel: specialNote,
+    };
+
+    axios
+      .post("https://reqres.in/api/pizza", formData)
+      .then((response) => {
+        console.log("Sipariş özeti:", response.data);
+      })
+      .catch((error) => {
+        console.warn("Sipariş gönderilirken hata oluştu:", error);
+      });
+  };
 
   return (
     <div className="d-flex  flex-column">
@@ -90,7 +118,10 @@ export default function Order() {
       <Row>
         <Col md={4} />
         <Col md={4}>
-          <SiparisNotu />
+          <SiparisNotu
+            onChange={handleSpecialNoteChange}
+            specialNote={specialNote}
+          />
         </Col>
         <Col md={4} />
       </Row>
@@ -101,7 +132,10 @@ export default function Order() {
           <SiparisAdet />
         </Col>
         <Col md={2}>
-          <CardComp isDisabled={isOrderButtonDisabled} />
+          <CardComp
+            isDisabled={isOrderButtonDisabled}
+            handleSubmit={handleSubmit}
+          />
         </Col>
         <Col md={4} />
       </Row>

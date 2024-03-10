@@ -1,6 +1,6 @@
 import { FormGroup, Input, Label } from "reactstrap";
 
-function SiparisNotu() {
+function SiparisNotu({ onChange, specialNote }) {
   return (
     <div className="order-not">
       <div>
@@ -12,6 +12,8 @@ function SiparisNotu() {
             type="textarea"
             rows="2"
             placeholder="Siparişine eklemek istediğin bir not var mı?"
+            value={specialNote}
+            onChange={onChange}
           />
         </FormGroup>
       </div>
