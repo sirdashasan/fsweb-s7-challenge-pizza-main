@@ -5,7 +5,9 @@ function NameInput({ onChange, nameError }) {
     <div className="order-name">
       <FormGroup>
         <Label for="name">
-          İsim: {nameError && <span className="text-danger">*</span>}
+          <div className="ad-error">
+            İsim: {nameError && <span className="text-danger">*</span>}
+          </div>
         </Label>
         <Input
           id="name"
@@ -13,6 +15,7 @@ function NameInput({ onChange, nameError }) {
           placeholder="Siparişini tamamlamak için adını girmelisin"
           type="text"
           onChange={onChange}
+          data-cy="ad-input"
         />
       </FormGroup>
     </div>

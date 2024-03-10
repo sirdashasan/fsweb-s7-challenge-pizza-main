@@ -35,10 +35,12 @@ function Malzemeler({
   return (
     <div>
       <div className="malzemeler-title">
-        <p>
-          Ek Malzemeler{" "}
-          {malzemelerError && <span className="text-danger">*</span>}
-        </p>
+        <div className="malzemeler-error">
+          <p>
+            Ek Malzemeler{" "}
+            {malzemelerError && <span className="text-danger">*</span>}
+          </p>
+        </div>
       </div>
       <div className="malzemeler-yazi">
         <p>En Fazla 10 malzeme seçebilirsiniz. 5₺</p>
@@ -54,6 +56,7 @@ function Malzemeler({
                 name="malzemeler"
                 onChange={handleChange}
                 checked={selectedIngredients.includes(item)}
+                data-cy="malzemeler-checkbox"
               />
               <span>{item}</span>
             </label>

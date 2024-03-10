@@ -30,6 +30,7 @@ function CardComp({ isDisabled, handleSubmit }) {
         className="order-card-button"
         disabled={isDisabled}
         onClick={handleSubmit}
+        data-cy="submit-button"
       >
         SİPARİŞ VER
       </Button>
