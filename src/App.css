@@ -158,10 +158,13 @@
 }
 
 .order-card-button {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold !important;
   width: calc(100% + 0px);
   margin: 0;
   height: 30px;
   margin-bottom: 40px;
+  font-size: 14px !important;
 }
 
 .success-container {
@@ -238,6 +241,7 @@ hr.line {
   font-weight: bold;
   height: 40px;
 }
+
 .success-order-summary {
   font-family: "Barlow-Regular", sans-serif;
   font-size: 12px;
@@ -259,7 +263,7 @@ hr.line {
 
 .menu-bar {
   font-family: "Roboto Condensed", sans-serif;
-  position: fixed;
+  top: 0;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -274,7 +278,7 @@ hr.line {
 }
 
 .menu-item {
-  padding-left: 50px;
+  padding-left: 15px;
   margin: 20px;
   align-items: center;
   color: #292929;
@@ -289,6 +293,52 @@ hr.line {
 .menu-item span {
   font-family: "Roboto Condensed", sans-serif;
   margin: 10px;
+}
+
+.home-pizza-card {
+  font-family: "Quattrocento", sans-serif;
+  margin-left: 310px;
+  margin-top: 100px;
+  margin-right: 20px;
+  margin-bottom: 100px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.home-pizza-card h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.home-pizza-card p {
+  font-family: "Barlow-Regular", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.home-burger-card {
+  font-family: "Quattrocento", sans-serif;
+  margin-left: 760px;
+  margin-top: -500px;
+  margin-right: 20px;
+  margin-bottom: 100px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.home-burger-card h5 {
+  margin-top: -15px;
+  margin-bottom: 10px;
+  padding-top: 18px;
+}
+
+.home-kurye-card {
+  font-family: "Quattrocento", sans-serif;
+  margin-left: -480px;
+  margin-top: -295px;
+  margin-bottom: 100px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 @font-face {

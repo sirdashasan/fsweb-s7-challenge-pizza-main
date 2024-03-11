@@ -31,7 +31,7 @@ function CardComp({ isDisabled, handleSubmit }) {
         </CardBody>
       </Card>
       <Button
-        style={{ borderRadius: "4px", paddingTop: "1px" }}
+        style={{ borderRadius: "4px", paddingTop: "1px", textAlign: "center" }}
         type="button"
         color="warning"
         className="order-card-button"
