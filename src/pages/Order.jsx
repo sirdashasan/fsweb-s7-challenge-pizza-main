@@ -11,8 +11,10 @@ import NameInput from "../components/NameInput";
 import { useState } from "react";
 import HeaderNav from "../components/HeaderNav";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default function Order() {
+  const history = useHistory();
   const [selectedSize, setSelectedSize] = useState("");
   const [isSizeError, setIsSizeError] = useState(true); // Başta * görünmesi için true yaptım
 
@@ -27,6 +29,8 @@ export default function Order() {
   const [isNameError, setIsNameError] = useState(true);
 
   const [specialNote, setSpecialNote] = useState("");
+
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
 
   const handleSizeChange = (e) => {
     setSelectedSize(e.target.value);
@@ -50,9 +54,7 @@ export default function Order() {
   const isOrderButtonDisabled =
     !selectedSize || !selectedDough || isIngredientsError || isNameError;
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
+  const handleSubmit = () => {
     const formData = {
       isim: name,
       boyut: selectedSize,
@@ -64,6 +66,8 @@ export default function Order() {
     axios
       .post("https://reqres.in/api/pizza", formData)
       .then((response) => {
+        setIsOrderPlaced(true);
+        history.push("/success", { formData });
         console.log("Sipariş özeti:", response.data);
       })
       .catch((error) => {

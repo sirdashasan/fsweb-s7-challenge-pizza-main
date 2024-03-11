@@ -45,7 +45,7 @@ function Malzemeler({
       <div className="malzemeler-yazi">
         <p>En Fazla 10 malzeme seçebilirsiniz. 5₺</p>
       </div>
-      <Row form className="malzemeler-row">
+      <Row className="malzemeler-row">
         {malzemeler.map((item, i) => (
           <Col md={4} key={i} className="mb-2">
             <label className="d-block">

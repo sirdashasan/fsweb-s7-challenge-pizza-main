@@ -7,7 +7,14 @@ import {
   CardTitle,
 } from "reactstrap";
 
+import { useHistory } from "react-router-dom";
+
 function CardComp({ isDisabled, handleSubmit }) {
+  const history = useHistory();
+  const handleButtonClick = () => {
+    history.push("/success");
+  };
+
   return (
     <div>
       <Card>
@@ -29,7 +36,7 @@ function CardComp({ isDisabled, handleSubmit }) {
         color="warning"
         className="order-card-button"
         disabled={isDisabled}
-        onClick={handleSubmit}
+        onClick={() => handleSubmit()}
         data-cy="submit-button"
       >
         SİPARİŞ VER

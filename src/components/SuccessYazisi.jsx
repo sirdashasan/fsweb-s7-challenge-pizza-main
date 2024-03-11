@@ -1,8 +1,8 @@
 function SuccessYazisi() {
   return (
     <div className="success-yazi">
-      <p>TEBRİKLER! </p>
-      <p>SİPARİŞİNİZ ALINDI!</p>
+      <h3>lezzetin yolda</h3>
+      <h1>SİPARİŞ ALINDI</h1>
     </div>
   );
 }

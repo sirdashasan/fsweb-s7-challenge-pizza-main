@@ -182,8 +182,32 @@
   margin-top: 100px;
 }
 
+.success-yazi h3 {
+  font-family: "Satisfy", sans-serif;
+  color: #fdc913;
+}
+
+.success-yazi h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+  font-weight: 200;
+  font-size: 60px;
+}
+
+hr {
+  width: 100%;
+  border-style: solid;
+  color: white;
+}
+
+hr.line {
+  height: 2px;
+  background-color: white;
+  border: none;
+}
+
 .home-container {
-  background-image: url("/assets/mile1-assets/home-banner.png");
+  background-image: url("public/assets/mile1-assets/home-banner.png");
   color: white;
   min-height: 100vh;
   background-size: cover;
@@ -208,6 +232,23 @@
   font-family: "Barlow", sans-serif;
   font-weight: bold;
   height: 40px;
+}
+.success-order-summary {
+  font-family: "Barlow-Regular", sans-serif;
+  font-size: 12px;
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+
+.success-order-title h5 {
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.success-card-comp {
+  display: flex;
+  justify-content: center;
 }
 
 @font-face {

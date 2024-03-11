@@ -14,11 +14,11 @@ function PizzaBoyutu({ onChange, boyutError }) {
             <input
               type="radio"
               name="boyut"
-              value="küçük"
+              value="S"
               onChange={onChange}
               data-cy="boyut-radio"
             />
-            Küçük
+            S
           </label>
         </div>
         <div className="boyut-options">
@@ -26,11 +26,11 @@ function PizzaBoyutu({ onChange, boyutError }) {
             <input
               type="radio"
               name="boyut"
-              value="orta"
+              value="M"
               onChange={onChange}
               data-cy="boyut-radio"
             />
-            Orta
+            M
           </label>
         </div>
         <div className="boyut-options">
@@ -38,11 +38,11 @@ function PizzaBoyutu({ onChange, boyutError }) {
             <input
               type="radio"
               name="boyut"
-              value="büyük"
+              value="L"
               onChange={onChange}
               data-cy="boyut-radio"
             />
-            Büyük
+            L
           </label>
         </div>
       </form>
