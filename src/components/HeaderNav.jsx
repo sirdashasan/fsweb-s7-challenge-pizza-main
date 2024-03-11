@@ -7,7 +7,7 @@ function HeaderNav() {
         <p>Teknolojik Yemekler</p>
       </div>
       <div className="header-nav">
-        <Link to={"/Home"}>Anasayfa</Link>
+        <Link to={"/"}>Anasayfa</Link>
       </div>
     </div>
   );

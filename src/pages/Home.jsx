@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import HomeButton from "../components/HomeButton";
 import HomeYazisi from "../components/HomeYazisi";
+import MenuBar from "../components/MenuBar";
 
 export default function Anasayfa() {
   return (
@@ -8,6 +9,7 @@ export default function Anasayfa() {
       <Header />
       <HomeYazisi />
       <HomeButton />
+      <MenuBar />
     </div>
   );
 }

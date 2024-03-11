@@ -24,7 +24,7 @@
   font-weight: bold;
   font-size: 25px;
   margin-top: 20px;
-  font-family: "Barlow", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .header-nav {
@@ -179,7 +179,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 .success-yazi h3 {
@@ -226,6 +226,11 @@ hr.line {
   margin-top: 30px;
 }
 
+.home-yazi h3 {
+  font-family: "Satisfy", sans-serif;
+  color: #fdc913;
+}
+
 .home-button {
   display: flex;
   justify-content: center;
@@ -247,8 +252,43 @@ hr.line {
 }
 
 .success-card-comp {
+  font-family: "Roboto Condensed", sans-serif;
   display: flex;
   justify-content: center;
+}
+
+.menu-bar {
+  font-family: "Roboto Condensed", sans-serif;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* üst tarafa hafif bir gölge ekler */
+  z-index: 1000;
+  height: 100px;
+  color: #292929;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item {
+  padding-left: 50px;
+  margin: 20px;
+  align-items: center;
+  color: #292929;
+  text-decoration: none;
+}
+
+.menu-item img {
+  width: 30px;
+  height: 30px;
+}
+
+.menu-item span {
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 10px;
 }
 
 @font-face {
