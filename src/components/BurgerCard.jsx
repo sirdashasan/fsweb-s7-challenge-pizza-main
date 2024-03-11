@@ -68,6 +68,15 @@ function BurgerCard() {
               border: "1px solid white",
               marginTop: "10px",
             }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = "#292929";
+              e.currentTarget.style.color = "white";
+              e.currentTarget.style.border = "#292929";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = "white";
+              e.currentTarget.style.color = "#292929";
+            }}
           >
             SİPARİŞ VER
           </Button>
