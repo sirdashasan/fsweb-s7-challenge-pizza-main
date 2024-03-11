@@ -16,7 +16,7 @@ function BurgerCard() {
           height: "195px",
           position: "relative",
           borderRadius: "10px",
-          boxShadow: "0 0 0 3px white",
+          border: "1px #292929",
         }}
         className="home-burger-card"
       >

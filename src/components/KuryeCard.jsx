@@ -16,7 +16,7 @@ function KuryeCard() {
           height: "195px",
           position: "relative",
           borderRadius: "10px",
-          boxShadow: "0 0 0 3px white",
+          border: "1px #FAF7F2",
         }}
         className="home-kurye-card"
       >

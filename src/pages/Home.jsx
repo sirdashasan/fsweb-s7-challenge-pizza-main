@@ -1,4 +1,5 @@
 import BurgerCard from "../components/BurgerCard";
+import FoodCards from "../components/FoodCards";
 import Header from "../components/Header";
 import HomeButton from "../components/HomeButton";
 import HomeYazisi from "../components/HomeYazisi";
@@ -59,7 +60,20 @@ export default function Anasayfa() {
         </div>
 
         <MenuBarButtons />
-        <p>55</p>
+        <div style={{}} className="d-flex justify-content-center gx-3">
+          <FoodCards
+            imageSrc="/Assets/mile2-aseets/pictures/food-1.png"
+            imageName="Terminal Pizza"
+          />
+          <FoodCards
+            imageSrc="/Assets/mile2-aseets/pictures/food-2.png"
+            imageName="Position Absolute Acı Pizza"
+          />
+          <FoodCards
+            imageSrc="/Assets/mile2-aseets/pictures/food-3.png"
+            imageName="useEffect Tavuklu Burger"
+          />
+        </div>
       </div>
     </div>
   );
