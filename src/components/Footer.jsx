@@ -5,6 +5,7 @@ import {
   faPhone,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Footer() {
   return (
@@ -31,9 +32,11 @@ function Footer() {
               fontFamily: "Barlow",
             }}
           >
-            <h2>
-              Teknolojik <br /> Yemekler
-            </h2>
+            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+              <h2>
+                Teknolojik <br /> Yemekler
+              </h2>
+            </Link>
           </div>
           <div
             style={{

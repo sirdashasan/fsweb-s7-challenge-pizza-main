@@ -21,7 +21,7 @@ function OrderYazilar() {
         <img
           style={{
             width: "300px",
-            marginTop: "-120px",
+            marginTop: "-150px",
             marginBottom: "10px",
             marginLeft: "100px",
           }}

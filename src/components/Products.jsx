@@ -37,6 +37,28 @@ const products = [
     description: "Yemek kuru kuru gitmez yazılımcının mazotu kafein seninle...",
     image: "/Assets/mile2-aseets/pictures/coke.png",
   },
+  {
+    id: 6,
+    name: "Terminal Pizza",
+    price: 89,
+    description: "npm run dev pizzanın tadını çıkar",
+    image: "/Assets/mile2-aseets/pictures/food-1.png",
+  },
+  {
+    id: 7,
+    name: "Position Absolute Acı Tatlı Pizza",
+    price: 99,
+    description: "Hayat gibi acı tatlı sosuyla...",
+    image: "/Assets/mile2-aseets/pictures/food-2.png",
+  },
+  {
+    id: 8,
+    name: "useEffect Tavuklu Burger",
+    price: 89,
+    description:
+      "Yaşam döngün boyunca takip edebileceğin ve yiyebileceğin bir burger seninle...",
+    image: "/Assets/mile2-aseets/pictures/food-3.png",
+  },
 ];
 
 export default products;

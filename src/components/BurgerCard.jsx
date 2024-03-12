@@ -6,6 +6,8 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
+import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function BurgerCard() {
   return (
@@ -57,29 +59,35 @@ function BurgerCard() {
             Hackathlon<br></br>Burger Menü
           </CardTitle>
 
-          <Button
-            style={{
-              backgroundColor: "white",
-              color: "#ce2829",
-              borderRadius: "20px",
-              fontFamily: "Barlow, sans-serif",
-              fontSize: "10px",
-              padding: "10px 20px",
-              border: "1px solid white",
-              marginTop: "10px",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = "#292929";
-              e.currentTarget.style.color = "white";
-              e.currentTarget.style.border = "#292929";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = "white";
-              e.currentTarget.style.color = "#292929";
-            }}
+          <Link
+            to="/order/3"
+            style={{ textDecoration: "none", color: "inherit" }}
           >
-            SİPARİŞ VER
-          </Button>
+            <Button
+              style={{
+                backgroundColor: "white",
+                color: "#ce2829",
+                borderRadius: "20px",
+                fontFamily: "Barlow, sans-serif",
+                fontSize: "10px",
+                padding: "10px 20px",
+                border: "1px solid white",
+                marginTop: "10px",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = "#292929";
+                e.currentTarget.style.color = "white";
+                e.currentTarget.style.border = "#292929";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = "white";
+                e.currentTarget.style.color = "#292929";
+              }}
+              onClick={scrollToTop}
+            >
+              SİPARİŞ VER
+            </Button>
+          </Link>
         </CardBody>
       </Card>
     </div>

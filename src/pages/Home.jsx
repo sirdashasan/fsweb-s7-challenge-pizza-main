@@ -8,6 +8,7 @@ import KuryeCard from "../components/KuryeCard";
 import MenuBar from "../components/MenuBar";
 import MenuBarButtons from "../components/MenuBarButtons";
 import PizzaCard from "../components/PizzaCard";
+import Products from "../components/Products.jsx";
 
 export default function Anasayfa() {
   return (
@@ -61,19 +62,36 @@ export default function Anasayfa() {
         </div>
 
         <MenuBarButtons />
-        <div style={{}} className="d-flex justify-content-center gx-3">
-          <FoodCards
-            imageSrc="/Assets/mile2-aseets/pictures/food-1.png"
-            imageName="Terminal Pizza"
-          />
-          <FoodCards
-            imageSrc="/Assets/mile2-aseets/pictures/food-2.png"
-            imageName="Position Absolute Acı Pizza"
-          />
-          <FoodCards
-            imageSrc="/Assets/mile2-aseets/pictures/food-3.png"
-            imageName="useEffect Tavuklu Burger"
-          />
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            marginRight: "300px",
+            marginLeft: "300px",
+            justifyContent: "center",
+          }}
+          className="d-flex justify-content-center gx-3"
+        >
+          {Products.map((product, index) => (
+            <div
+              key={product.id}
+              style={{
+                width: "30%",
+                padding: "1px",
+
+                textAlign: "center",
+              }}
+            >
+              <FoodCards
+                key={product.id}
+                imageSrc={product.image}
+                name={product.name}
+                price={product.price}
+                id={product.id}
+              />
+              {(index + 1) % 3 === 0 && <div style={{ clear: "both" }}></div>}
+            </div>
+          ))}
         </div>
         <Footer />
       </div>

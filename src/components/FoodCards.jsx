@@ -7,12 +7,14 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
+import Products from "./Products";
+import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
 
-function FoodCards({ imageSrc, imageName }) {
+function FoodCards({ imageSrc, name, price, id }) {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/order/${imageName}`);
+    history.push(`/order/${id}`);
   };
 
   return (
@@ -25,20 +27,39 @@ function FoodCards({ imageSrc, imageName }) {
         style={{
           width: "250px",
           fontFamily: "Roboto Condensed",
-          margin: "19px",
+          margin: "30px",
           border: "1px white",
           cursor: "pointer",
         }}
-        onClick={handleClick}
+        onClick={() => {
+          handleClick();
+          scrollToTop();
+        }}
       >
-        <img alt="Sample" src={imageSrc} />
+        <img
+          alt="Sample"
+          src={imageSrc}
+          style={{
+            maxWidth: "250px",
+            height: "250px",
+            margin: "10px",
+            padding: "10px",
+          }}
+        />
         <CardBody>
-          <CardTitle tag="h6">{imageName}</CardTitle>
+          <CardTitle
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+            tag="h6"
+          >
+            {name}
+          </CardTitle>
           <CardText className="d-flex justify-content-between">
-            <span>4.9</span>
-            <span>(200)</span>
-            <span>
-              <strong>60₺</strong>
+            <span style={{ marginLeft: "180px" }}>
+              <strong>{price}₺</strong>
             </span>
           </CardText>
         </CardBody>

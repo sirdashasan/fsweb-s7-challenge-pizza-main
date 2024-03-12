@@ -6,6 +6,8 @@ import SuccessCardComp from "../components/SuccessCardComp";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Footer from "../components/Footer";
 
 export default function Success() {
   const location = useLocation();
@@ -95,6 +97,25 @@ export default function Success() {
           <Col md={4} />
         </Col>
       </Row>
+
+      <div>
+        <Link
+          to="/"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            color: "inherit",
+          }}
+        >
+          <div className="header-title">
+            <p style={{ marginTop: "10px", marginBottom: "50px" }}>
+              Ana Sayfaya Dön
+            </p>
+          </div>
+        </Link>
+      </div>
+
+      <Footer />
     </div>
   );
 }
