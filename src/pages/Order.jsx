@@ -36,6 +36,21 @@ export default function Order() {
 
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  const [selectedPrice, setSelectedPrice] = useState();
+
+  const [totalPrice, setTotalPrice] = useState();
+
+  const handleQuantityChange = (quantity) => {
+    setTotalPrice(
+      quantity === "null" ? selectedPrice.price : selectedPrice.price * quantity
+    );
+  };
+
+  const handleSelectPrice = (productId) => {
+    const selected = Products.find((product) => product.id === productId);
+    setSelectedPrice(selected);
+  };
+
   const handleSelectProduct = (productId) => {
     const selected = Products.find((product) => product.id === productId);
     setSelectedProduct(selected);
@@ -120,7 +135,10 @@ export default function Order() {
         <Row className="mt-3">
           <Col md={4} />
           <Col md={4}>
-            <OrderYazilar onSelectProduct={handleSelectProduct} />
+            <OrderYazilar
+              onSelectProduct={handleSelectProduct}
+              onSelectPrice={handleSelectPrice}
+            />
           </Col>
           <Col md={4} />
         </Row>
@@ -185,12 +203,14 @@ export default function Order() {
       <Row>
         <Col md={4} />
         <Col md={2}>
-          <SiparisAdet />
+          <SiparisAdet onQuantityChange={handleQuantityChange} />
         </Col>
         <Col md={2}>
           <CardComp
             isDisabled={isOrderButtonDisabled}
             handleSubmit={handleSubmit}
+            selectedPrice={selectedPrice ? selectedPrice.price : 0}
+            totalPrice={totalPrice} //
           />
         </Col>
         <Col md={4} />

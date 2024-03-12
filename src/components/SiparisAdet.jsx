@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { Button } from "reactstrap";
 
-function SiparisAdet() {
-  const [adet, setAdet] = useState(0);
+function SiparisAdet({ onQuantityChange }) {
+  const [adet, setAdet] = useState(1);
 
   const arttir = () => {
-    setAdet((adet) => adet + 1);
+    const yeniAdet = adet + 1;
+    setAdet(yeniAdet);
+    onQuantityChange(yeniAdet);
   };
 
   const azalt = () => {
-    setAdet((adet) => (adet > 0 ? adet - 1 : 0));
+    const yeniAdet = adet > 1 ? adet - 1 : 1;
+    setAdet(yeniAdet);
+    onQuantityChange(yeniAdet);
   };
 
   return (

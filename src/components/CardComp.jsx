@@ -9,7 +9,9 @@ import {
 
 import { useHistory } from "react-router-dom";
 
-function CardComp({ isDisabled, handleSubmit }) {
+import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
+
+function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
   const history = useHistory();
   const handleButtonClick = () => {
     history.push("/success");
@@ -30,12 +32,18 @@ function CardComp({ isDisabled, handleSubmit }) {
         <CardBody>
           <CardTitle className="order-card-title">Sipariş Toplamı</CardTitle>
           <div className="d-flex justify-content-between align-items-center">
-            <CardText className="order-card-secimler mb-0">Seçimler </CardText>
-            <CardText className="order-card-secimler mb-0">25₺</CardText>
+            <CardText className="order-card-secimler mb-0">
+              Seçimler (Birim Fiyat){" "}
+            </CardText>
+            <CardText className="order-card-secimler mb-0">
+              {selectedPrice}₺
+            </CardText>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-2">
             <CardText className="order-card-toplam mb-0">Toplam </CardText>
-            <CardText className="order-card-toplam mb-0">110.50₺</CardText>
+            <CardText className="order-card-toplam mb-0">
+              {totalPrice}₺
+            </CardText>
           </div>
         </CardBody>
       </Card>
@@ -52,7 +60,10 @@ function CardComp({ isDisabled, handleSubmit }) {
         color="warning"
         className="order-card-button"
         disabled={isDisabled}
-        onClick={() => handleSubmit()}
+        onClick={() => {
+          handleSubmit();
+          scrollToTop();
+        }}
         data-cy="submit-button"
       >
         SİPARİŞ VER

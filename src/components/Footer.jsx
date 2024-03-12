@@ -6,6 +6,7 @@ import {
   faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
 
 function Footer() {
   return (
@@ -32,7 +33,11 @@ function Footer() {
               fontFamily: "Barlow",
             }}
           >
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link
+              onClick={scrollToTop}
+              to="/"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <h2>
                 Teknolojik <br /> Yemekler
               </h2>

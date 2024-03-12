@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import products from "./Products";
 import HeaderNav from "./HeaderNav";
 import { Col, Row } from "reactstrap";
+import CardComp from "./CardComp";
 
-function OrderYazilar() {
+function OrderYazilar({ onSelectPrice }) {
   let { id } = useParams();
 
   // URL'den gelen id değerini tamsayıya çevir
@@ -14,6 +15,8 @@ function OrderYazilar() {
   if (!product) {
     return <div>Ürün bulunamadı!</div>;
   }
+
+  onSelectPrice(product.id);
 
   return (
     <>
