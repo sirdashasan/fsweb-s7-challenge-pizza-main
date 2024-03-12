@@ -5,7 +5,7 @@ function HomeButton() {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push("/order");
+    history.push("/order/1");
   };
 
   return (

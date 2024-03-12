@@ -30,6 +30,22 @@ export default function Success() {
     <div className="success-container">
       <Header />
       <SuccessYazisi />
+
+      <Row
+        style={{ fontSize: "32px", marginLeft: "62px" }}
+        className="success-order-summary d-flex justify-content-center align-items-center"
+      >
+        <Col md={5} />
+        <Col md={2}>
+          {orderSummary && (
+            <p>
+              <strong> {orderSummary.isim}!</strong>
+            </p>
+          )}
+        </Col>
+        <Col md={5} />
+      </Row>
+
       <Row className="mt-3">
         <Col md={4} />
         <Col md={4}>
@@ -51,9 +67,6 @@ export default function Success() {
         <Col md={2}>
           {orderSummary && (
             <div>
-              <p>
-                İsim: <strong>{orderSummary.isim}</strong>
-              </p>
               <p>
                 Boyut: <strong>{orderSummary.boyut}</strong>
               </p>

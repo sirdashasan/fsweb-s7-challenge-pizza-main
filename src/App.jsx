@@ -11,10 +11,13 @@ function App() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/order">
+      <Route path="/order/:id">
         <Order />
       </Route>
       <Route path="/success">
+        <Success />
+      </Route>
+      <Route path="/product">
         <Success />
       </Route>
     </div>

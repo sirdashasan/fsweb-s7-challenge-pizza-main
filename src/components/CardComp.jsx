@@ -24,6 +24,7 @@ function CardComp({ isDisabled, handleSubmit }) {
           fontSize: "12px ",
           margin: "5px",
           padding: "10px",
+          width: "250px",
         }}
       >
         <CardBody>
@@ -39,7 +40,14 @@ function CardComp({ isDisabled, handleSubmit }) {
         </CardBody>
       </Card>
       <Button
-        style={{ borderRadius: "4px", paddingTop: "1px", textAlign: "center" }}
+        style={{
+          borderBottomLeftRadius: "4px",
+          borderBottomRightRadius: "4px",
+          borderTopLeftRadius: "0px",
+          borderTopRightRadius: "0px",
+          paddingTop: "4px",
+          textAlign: "center",
+        }}
         type="button"
         color="warning"
         className="order-card-button"

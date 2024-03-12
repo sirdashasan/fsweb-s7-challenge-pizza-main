@@ -9,6 +9,7 @@ function SuccessCardComp() {
           backgroundColor: "#ce2829",
           borderColor: "white",
           borderRadius: "2px",
+          marginBottom: "50px",
         }}
       >
         <CardBody style={{ backgroundColor: "#ce2829" }}>

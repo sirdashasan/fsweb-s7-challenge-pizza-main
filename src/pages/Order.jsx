@@ -12,6 +12,8 @@ import { useState } from "react";
 import HeaderNav from "../components/HeaderNav";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Footer from "../components/Footer";
+import Products from "../components/Products";
 
 export default function Order() {
   const history = useHistory();
@@ -31,6 +33,13 @@ export default function Order() {
   const [specialNote, setSpecialNote] = useState("");
 
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleSelectProduct = (productId) => {
+    const selected = Products.find((product) => product.id === productId);
+    setSelectedProduct(selected);
+  };
 
   const handleSizeChange = (selectedValue) => {
     setSelectedSize(selectedValue);
@@ -77,42 +86,41 @@ export default function Order() {
 
   return (
     <div className="d-flex  flex-column">
-      <div style={{ backgroundColor: " #CE2829", height: "80px" }}>
+      <div
+        style={{
+          backgroundColor: " #CE2829",
+          height: "80px",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1,
+        }}
+      >
         <Header />
       </div>
 
       <div style={{ backgroundColor: "#FAF7F2" }}>
-        <div
-          style={{
-            marginTop: "-50px",
-            zIndex: 1,
-            position: "relative",
-          }}
-          className="d-flex justify-content-center"
-        >
+        <div className="d-flex justify-content-center">
           <div
             style={{
-              clipPath: "inset(80px 0 0 0)",
-              overflow: "hidden",
-              marginTop: "-30px",
+              marginTop: "40px",
+              marginBottom: "20px",
+              marginLeft: "120px",
+              position: "relative",
+              zIndex: 0,
             }}
           >
-            <img src="/Assets/mile2-aseets/pictures/form-banner.png" alt="" />
+            {selectedProduct && ( // Eğer bir ürün seçildiyse
+              <img src={selectedProduct.image} alt={selectedProduct.name} />
+            )}
           </div>
         </div>
-
-        <Row style={{ color: "black", marginTop: "30px" }}>
-          <Col md={4} />
-          <Col md={4}>
-            <HeaderNav />
-          </Col>
-          <Col md={4} />
-        </Row>
 
         <Row className="mt-3">
           <Col md={4} />
           <Col md={4}>
-            <OrderYazilar />
+            <OrderYazilar onSelectProduct={handleSelectProduct} />
           </Col>
           <Col md={4} />
         </Row>
@@ -187,6 +195,8 @@ export default function Order() {
         </Col>
         <Col md={4} />
       </Row>
+
+      <Footer />
     </div>
   );
 }
