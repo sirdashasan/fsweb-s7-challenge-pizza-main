@@ -1,5 +1,6 @@
 import BurgerCard from "../components/BurgerCard";
 import FoodCards from "../components/FoodCards";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HomeButton from "../components/HomeButton";
 import HomeYazisi from "../components/HomeYazisi";
@@ -74,6 +75,7 @@ export default function Anasayfa() {
             imageName="useEffect Tavuklu Burger"
           />
         </div>
+        <Footer />
       </div>
     </div>
   );
