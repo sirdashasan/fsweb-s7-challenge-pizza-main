@@ -16,6 +16,14 @@ function NameInput({ onChange, nameError }) {
           type="text"
           onChange={onChange}
           data-cy="ad-input"
+          style={{
+            height: "40px",
+            backgroundColor: "#FAF7F2",
+            border: "none",
+            borderRadius: "5px",
+            fontFamily: "Roboto Condensed",
+            fontSize: "12px",
+          }}
         />
       </FormGroup>
     </div>

@@ -32,9 +32,9 @@ export default function Order() {
 
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
 
-  const handleSizeChange = (e) => {
-    setSelectedSize(e.target.value);
-    setIsSizeError(!e.target.value);
+  const handleSizeChange = (selectedValue) => {
+    setSelectedSize(selectedValue);
+    setIsSizeError(!selectedValue);
   };
 
   const handleDoughChange = (e) => {
@@ -77,17 +77,53 @@ export default function Order() {
 
   return (
     <div className="d-flex  flex-column">
-      <HeaderNav />
+      <div style={{ backgroundColor: " #CE2829", height: "80px" }}>
+        <Header />
+      </div>
 
-      <Row className="mt-3">
-        <Col md={4} />
-        <Col md={4}>
-          <OrderYazilar />
-        </Col>
-        <Col md={4} />
-      </Row>
+      <div style={{ backgroundColor: "#FAF7F2" }}>
+        <div
+          style={{
+            marginTop: "-50px",
+            zIndex: 1,
+            position: "relative",
+          }}
+          className="d-flex justify-content-center"
+        >
+          <div
+            style={{
+              clipPath: "inset(80px 0 0 0)",
+              overflow: "hidden",
+              marginTop: "-30px",
+            }}
+          >
+            <img src="/Assets/mile2-aseets/pictures/form-banner.png" alt="" />
+          </div>
+        </div>
 
-      <Row className=" mb-3">
+        <Row style={{ color: "black", marginTop: "30px" }}>
+          <Col md={4} />
+          <Col md={4}>
+            <HeaderNav />
+          </Col>
+          <Col md={4} />
+        </Row>
+
+        <Row className="mt-3">
+          <Col md={4} />
+          <Col md={4}>
+            <OrderYazilar />
+          </Col>
+          <Col md={4} />
+        </Row>
+      </div>
+
+      <Row
+        style={{
+          marginTop: "20px",
+        }}
+        className=" mb-3"
+      >
         <Col md={4} />
         <Col md={2}>
           <PizzaBoyutu onChange={handleSizeChange} boyutError={isSizeError} />
@@ -126,6 +162,14 @@ export default function Order() {
             onChange={handleSpecialNoteChange}
             specialNote={specialNote}
           />
+        </Col>
+        <Col md={4} />
+      </Row>
+
+      <Row>
+        <Col md={4} />
+        <Col md={4}>
+          <hr style={{ marginTop: "5px", marginBottom: "20px" }} />
         </Col>
         <Col md={4} />
       </Row>

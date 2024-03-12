@@ -57,6 +57,11 @@ function Malzemeler({
                 onChange={handleChange}
                 checked={selectedIngredients.includes(item)}
                 data-cy="malzemeler-checkbox"
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  borderRadius: "5px",
+                }}
               />
               <span>{item}</span>
             </label>

@@ -27,6 +27,7 @@ function FoodCards({ imageSrc, imageName }) {
           fontFamily: "Roboto Condensed",
           margin: "19px",
           border: "1px white",
+          cursor: "pointer",
         }}
         onClick={handleClick}
       >

@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="header-container">
       <div className="header-title">
-        <p>Teknolojik Yemekler</p>
+        <p style={{ marginTop: "10px" }}>Teknolojik Yemekler</p>
       </div>
     </div>
   );

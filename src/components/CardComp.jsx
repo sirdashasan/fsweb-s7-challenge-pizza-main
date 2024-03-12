@@ -17,7 +17,15 @@ function CardComp({ isDisabled, handleSubmit }) {
 
   return (
     <div>
-      <Card>
+      <Card
+        style={{
+          backgroundColor: "#FAF7F2",
+          border: "#FAF7F2",
+          fontSize: "12px ",
+          margin: "5px",
+          padding: "10px",
+        }}
+      >
         <CardBody>
           <CardTitle className="order-card-title">Sipariş Toplamı</CardTitle>
           <div className="d-flex justify-content-between align-items-center">

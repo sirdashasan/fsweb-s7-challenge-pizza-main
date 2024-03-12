@@ -28,18 +28,30 @@
 }
 
 .header-nav {
-  position: absolute;
   top: 80px;
   left: 515px;
   font-weight: 300;
 }
 
 .header-nav a {
-  color: white;
+  color: black;
+}
+
+.header-nav-link {
+  font-weight: bold;
+  font-size: 12px;
+  color: #5f5f5f;
   text-decoration: none;
   font-family: "Roboto Condensed", sans-serif;
 }
 
+.header-nav-red-text {
+  color: #ce2829 !important;
+}
+
+.header-nav-link + .header-nav-link {
+  margin-left: 5px;
+}
 .order-title {
   font-family: "Roboto Condensed", sans-serif;
   margin-top: 10px;
@@ -120,6 +132,30 @@
   margin-right: 10px;
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #faf7f2;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #fdc913;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "\2714";
+  display: inline-block;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  position: relative;
+  left: 10px;
+  top: 5px;
+}
+
 .order-name {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
@@ -131,14 +167,15 @@
 }
 
 .order-adet-yazi {
-  padding: 4px 10px;
-  border: 1px solid grey;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 6px 12px;
+  border: 1px solid #faf7f2;
   border-radius: 0px;
   width: 30px;
-  height: 32px;
+  height: 31px;
   text-align: center;
-  background-color: white;
-  font-size: 14px;
+  background-color: #faf7f2;
+  font-size: 12px;
 }
 .order-card-title {
   font-family: "Roboto Condensed", sans-serif;

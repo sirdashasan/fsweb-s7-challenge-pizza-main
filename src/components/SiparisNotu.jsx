@@ -14,6 +14,14 @@ function SiparisNotu({ onChange, specialNote }) {
             placeholder="Siparişine eklemek istediğin bir not var mı?"
             value={specialNote}
             onChange={onChange}
+            style={{
+              height: "40px",
+              backgroundColor: "#FAF7F2",
+              border: "none",
+              borderRadius: "5px",
+              fontFamily: "Roboto Condensed",
+              fontSize: "12px",
+            }}
           />
         </FormGroup>
       </div>
