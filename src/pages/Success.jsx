@@ -92,8 +92,12 @@ export default function Success() {
       <Row className="justify-content-center align-items-center">
         <Col md={4} />
         <Col md={6}>
-          <SuccessCardComp />
-
+          {orderSummary && (
+            <SuccessCardComp
+              selectedPrice={orderSummary.fiyat}
+              totalPrice={orderSummary.toplamFiyat}
+            />
+          )}
           <Col md={4} />
         </Col>
       </Row>

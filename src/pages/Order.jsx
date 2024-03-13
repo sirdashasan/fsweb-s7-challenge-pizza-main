@@ -101,6 +101,8 @@ export default function Order() {
       hamur: selectedDough,
       malzemeler: selectedIngredients,
       ozel: specialNote,
+      fiyat: selectedPrice.price,
+      toplamFiyat: totalPrice,
     };
 
     axios

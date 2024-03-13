@@ -1,6 +1,6 @@
 import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 
-function SuccessCardComp() {
+function SuccessCardComp({ selectedPrice, totalPrice }) {
   return (
     <div>
       <Card
@@ -27,7 +27,7 @@ function SuccessCardComp() {
               className="order-card-secimler mb-0"
               style={{ color: "white" }}
             >
-              25₺
+              {selectedPrice}₺
             </CardText>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-2">
@@ -41,7 +41,7 @@ function SuccessCardComp() {
               className="order-card-toplam mb-0"
               style={{ color: "white" }}
             >
-              110.50₺
+              {totalPrice}₺
             </CardText>
           </div>
         </CardBody>
