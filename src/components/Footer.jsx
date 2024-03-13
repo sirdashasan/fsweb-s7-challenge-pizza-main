@@ -132,8 +132,7 @@ function Footer() {
           <hr
             style={{
               position: "absolute",
-              marginTop: "-70px",
-              marginBottom: "-70px",
+              marginTop: "-10px",
               width: "%100",
             }}
           />

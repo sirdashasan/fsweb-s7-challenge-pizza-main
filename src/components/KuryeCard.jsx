@@ -19,6 +19,12 @@ function KuryeCard() {
           position: "relative",
           borderRadius: "10px",
           border: "1px #FAF7F2",
+          fontFamily: "Quattrocento",
+          marginLeft: "-480px",
+          marginTop: "-295px",
+          marginBottom: "100px",
+          paddingLeft: "20px",
+          paddingTop: "20px",
         }}
         className="home-kurye-card"
       >
@@ -90,7 +96,7 @@ function KuryeCard() {
             <Button
               style={{
                 backgroundColor: "white",
-                color: "#ce2829",
+                color: "#CE2829",
                 borderRadius: "20px",
                 fontFamily: "Barlow, sans-serif",
                 fontSize: "10px",

@@ -12,21 +12,38 @@ function MenuBarButtons() {
   ];
 
   return (
-    <div className="menu-bar-buttons">
+    <div
+      style={{
+        fontFamily: "Roboto Condensed",
+        fontSize: "12px",
+        top: "0",
+        bottom: "0",
+        left: "0",
+        zIndex: "1000",
+        color: "#292929",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {menuItems.map((item) => (
         <Link key={item.id} to={`/order/${item.id}`} className="menu-item">
           <button
-            className="menu-button"
             style={{
+              fontFamily: "Roboto Condensed",
+              fontWeight: "500",
               borderRadius: "50px",
               backgroundColor: "white",
               color: "#292929",
               border: "2px solid white",
-              padding: "10px 15px",
+              padding: "0px 0px",
               alignContent: "center",
               alignItems: "center",
               justifyContent: "center",
-              margin: "-20px",
+              marginTop: "10px",
+              marginLeft: "26px",
+              width: "114px",
+              height: "50px",
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.backgroundColor = "#292929";
@@ -38,7 +55,11 @@ function MenuBarButtons() {
             }}
             onClick={scrollToTop}
           >
-            <img src={item.src} alt={item.label} />
+            <img
+              src={item.src}
+              alt={item.label}
+              style={{ width: "25px", margin: "5px" }}
+            />
             <span>{item.label}</span>
           </button>
         </Link>

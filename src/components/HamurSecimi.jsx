@@ -1,8 +1,8 @@
 function HamurSecimi({ onChange, hamurError, selectedDough }) {
   return (
     <div>
-      <div className="hamur-title">
-        <div className="hamur-error">
+      <div style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}>
+        <div>
           <p>
             Hamur Seç {hamurError && <span className="text-danger">*</span>}
           </p>
@@ -13,7 +13,6 @@ function HamurSecimi({ onChange, hamurError, selectedDough }) {
           fontFamily: "Roboto Condensed",
           fontSize: "12px",
         }}
-        className="hamur-options"
       >
         <select
           onChange={onChange}

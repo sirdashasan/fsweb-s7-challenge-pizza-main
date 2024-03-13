@@ -37,14 +37,33 @@ function OrderYazilar({ onSelectPrice }) {
         <HeaderNav />
       </div>
 
-      <div className="order-title">
+      <div
+        style={{
+          fontFamily: "Roboto Condensed",
+          marginTop: "10px",
+        }}
+      >
         <h5>{product.name}</h5>
       </div>
-      <div className="order-fiyat">
+      <div
+        style={{
+          fontFamily: "Roboto Condensed",
+          marginTop: "30px",
+          marginBottom: "20px",
+          fontWeight: "bold",
+        }}
+        className="order-fiyat"
+      >
         <h4>{product.price}₺</h4>
       </div>
-      <div className="order-yazilar">
-        <p>{product.description}</p>
+      <div
+        style={{
+          fontFamily: "Roboto Condensed",
+          color: "#5f5f5f",
+          marginBottom: "35px",
+        }}
+      >
+        <p style={{ fontSize: "15px" }}>{product.description}</p>
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+import { Col, Row } from "reactstrap";
 import BurgerCard from "../components/BurgerCard";
 import FoodCards from "../components/FoodCards";
 import Footer from "../components/Footer";

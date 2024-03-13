@@ -13,16 +13,65 @@ function MenuBar() {
   ];
 
   return (
-    <div className="menu-bar">
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        alignContent: "center",
+        fontFamily: "Roboto Condensed",
+        top: "0",
+        width: "100%",
+        bottom: "0",
+        left: "0",
+        backgroundColor: "white",
+        zIndex: "1000",
+        height: "80px",
+        color: "#292929",
+      }}
+    >
       {menuItems.map((item) => (
         <Link
           key={item.id}
           to={`/order/${item.id}`}
-          className="menu-item"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+            paddingLeft: "15px",
+            margin: "20px",
+            alignItems: "center",
+            color: "#292929",
+            textDecoration: "none",
+          }}
           onClick={scrollToTop}
         >
-          <img src={item.src} alt={item.label} />
-          <span>{item.label}</span>
+          <img
+            src={item.src}
+            alt={item.label}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              alignContent: "center",
+              width: "25px",
+              height: "25px",
+            }}
+          />
+          <span
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              alignContent: "center",
+              fontFamily: "Roboto Condensed",
+              margin: "10px",
+              fontSize: "15px",
+            }}
+          >
+            {item.label}
+          </span>
         </Link>
       ))}
     </div>

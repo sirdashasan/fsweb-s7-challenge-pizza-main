@@ -29,14 +29,27 @@ function PizzaBoyutu({ onChange, boyutError }) {
 
   return (
     <div>
-      <div className="boyut-title">
+      <div style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}>
         <div className="boyut-error">
           <p>Boyut Seç {error && <span className="text-danger">*</span>}</p>
         </div>
       </div>
       <form className="d-flex justify-content-start">
-        <div style={{ marginRight: "10px" }} className="boyut-options">
-          <label>
+        <div
+          style={{
+            marginRight: "10px",
+            fontFamily: "Roboto Condensed",
+            color: "#5f5f5f",
+            marginBottom: "8px",
+          }}
+        >
+          <label
+            style={{
+              fontSize: "13px",
+              fontWeight: "500",
+              verticalAlign: "middle",
+            }}
+          >
             <input
               type="button"
               name="boyut"
@@ -50,13 +63,21 @@ function PizzaBoyutu({ onChange, boyutError }) {
                 height: "40px",
                 width: "40px",
                 border: "1px solid #FAF7F2",
+                fontFamily: "Roboto Condensed",
+                fontWeight: "400",
               }}
               onClick={handleButtonClick}
             />
           </label>
         </div>
         <div style={{ marginRight: "10px" }} className="boyut-options">
-          <label>
+          <label
+            style={{
+              fontSize: "13px",
+              fontWeight: "500",
+              verticalAlign: "middle",
+            }}
+          >
             <input
               type="button"
               name="boyut"
@@ -70,13 +91,21 @@ function PizzaBoyutu({ onChange, boyutError }) {
                 height: "40px",
                 width: "40px",
                 border: "1px solid #FAF7F2",
+                fontFamily: "Roboto Condensed",
+                fontWeight: "400",
               }}
               onClick={handleButtonClick}
             />
           </label>
         </div>
         <div className="boyut-options">
-          <label>
+          <label
+            style={{
+              fontSize: "13px",
+              fontWeight: "500",
+              verticalAlign: "middle",
+            }}
+          >
             <input
               type="button"
               name="boyut"
@@ -90,6 +119,8 @@ function PizzaBoyutu({ onChange, boyutError }) {
                 height: "40px",
                 width: "40px",
                 border: "1px solid #FAF7F2",
+                fontFamily: "Roboto Condensed",
+                fontWeight: "400",
               }}
               onClick={handleButtonClick}
             />

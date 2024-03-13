@@ -5,27 +5,33 @@ function SuccessCardComp({ selectedPrice, totalPrice }) {
     <div>
       <Card
         style={{
+          fontFamily: "Roboto Condensed",
+          fontSize: "14px",
           width: "240px",
           backgroundColor: "#ce2829",
           borderColor: "white",
           borderRadius: "2px",
           marginBottom: "50px",
+          padding: "20px",
         }}
       >
-        <CardBody style={{ backgroundColor: "#ce2829" }}>
-          <CardTitle className="order-card-title" style={{ color: "white" }}>
+        <CardBody
+          style={{
+            backgroundColor: "#ce2829",
+            fontFamily: "Roboto Condensed",
+            fontWeight: "bold",
+          }}
+        >
+          <CardTitle style={{ color: "white", fontWeight: "400" }}>
             Sipariş Toplamı
           </CardTitle>
           <div className="d-flex justify-content-between align-items-center">
-            <CardText
-              className="order-card-secimler mb-0"
-              style={{ color: "white" }}
-            >
+            <CardText style={{ color: "white", fontWeight: "400" }}>
               Seçimler{" "}
             </CardText>
             <CardText
-              className="order-card-secimler mb-0"
-              style={{ color: "white" }}
+              className="mb-0"
+              style={{ color: "white", fontWeight: "400" }}
             >
               {selectedPrice}₺
             </CardText>
@@ -33,13 +39,13 @@ function SuccessCardComp({ selectedPrice, totalPrice }) {
           <div className="d-flex justify-content-between align-items-center mt-2">
             <CardText
               className="order-card-toplam mb-0"
-              style={{ color: "white" }}
+              style={{ color: "white", fontWeight: "400" }}
             >
               Toplam{" "}
             </CardText>
             <CardText
-              className="order-card-toplam mb-0"
-              style={{ color: "white" }}
+              className="mb-0"
+              style={{ color: "white", fontWeight: "400" }}
             >
               {totalPrice}₺
             </CardText>

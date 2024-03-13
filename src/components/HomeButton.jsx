@@ -9,7 +9,16 @@ function HomeButton() {
   };
 
   return (
-    <div className="home-button">
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        fontFamily: "Barlow",
+        fontWeight: "bold",
+        height: "40px",
+        marginTop: "20px",
+      }}
+    >
       <Button
         color="warning"
         style={{

@@ -34,7 +34,13 @@ function Malzemeler({
 
   return (
     <div>
-      <div className="malzemeler-title">
+      <div
+        style={{
+          fontFamily: "Roboto Condensed",
+          fontWeight: "bold",
+          marginTop: "15px",
+        }}
+      >
         <div className="malzemeler-error">
           <p>
             Ek Malzemeler{" "}
@@ -42,13 +48,21 @@ function Malzemeler({
           </p>
         </div>
       </div>
-      <div className="malzemeler-yazi">
+      <div style={{ fontFamily: "Roboto Condensed", color: "#5f5f5f" }}>
         <p>En Fazla 10 malzeme seçebilirsiniz. 5₺</p>
       </div>
-      <Row className="malzemeler-row">
+      <Row
+        style={{
+          fontFamily: "Roboto Condensed",
+          fontWeight: "bold",
+          color: "#5f5f5f",
+          fontSize: "13px",
+          marginBottom: "20px",
+        }}
+      >
         {malzemeler.map((item, i) => (
           <Col md={4} key={i} className="mb-2">
-            <label className="d-block">
+            <label style={{ marginBottom: "8px" }} className="d-block">
               <input
                 id="malzemeler-checkbox"
                 type="checkbox"
@@ -61,6 +75,8 @@ function Malzemeler({
                   width: "30px",
                   height: "30px",
                   borderRadius: "5px",
+                  marginRight: "10px",
+                  verticalAlign: "middle",
                 }}
               />
               <span>{item}</span>

@@ -29,24 +29,39 @@ export default function Success() {
   }, [formData]);
 
   return (
-    <div className="success-container">
+    <div
+      style={{
+        backgroundColor: "#ce2829",
+        color: "white",
+        minHeight: "100vh",
+      }}
+    >
       <Header />
-      <SuccessYazisi />
 
-      <Row
-        style={{ fontSize: "32px", marginLeft: "62px" }}
-        className="success-order-summary d-flex justify-content-center align-items-center"
-      >
-        <Col md={5} />
-        <Col md={2}>
-          {orderSummary && (
-            <p>
-              <strong> {orderSummary.isim}!</strong>
-            </p>
-          )}
+      <Row>
+        <Col md={4} />
+        <Col md={4}>
+          <SuccessYazisi />
         </Col>
-        <Col md={5} />
+        <Col md={4} />
       </Row>
+
+      <div>
+        {orderSummary && (
+          <p
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
+              fontFamily: "Barlow-Regular",
+              fontSize: "24px",
+            }}
+          >
+            <strong> {orderSummary.isim}!</strong>
+          </p>
+        )}
+      </div>
 
       <Row className="mt-3">
         <Col md={4} />
@@ -56,19 +71,45 @@ export default function Success() {
         <Col md={4} />
       </Row>
 
-      <Row className="mt-3 success-order-title">
+      <Row
+        style={{
+          marginTop: "20px",
+        }}
+      >
         <Col md={4} />
         <Col md={4}>
-          <h5>Position Absolute Acı Pizza</h5>
+          <h5
+            style={{
+              fontFamily: "Roboto Condensed",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            Position Absolute Acılı Pizza
+          </h5>
           <Col md={4} />
         </Col>
       </Row>
 
-      <Row className="mt-5 success-order-summary align-content-center justify-content-center">
+      <Row
+        style={{
+          fontFamily: "Barlow-Regular",
+          fontSize: "12px",
+          paddingLeft: "30px",
+          marginBottom: "40px",
+          marginTop: "30px",
+        }}
+      >
         <Col md={5} />
         <Col md={2}>
           {orderSummary && (
-            <div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
               <p>
                 Boyut: <strong>{orderSummary.boyut}</strong>
               </p>
@@ -85,11 +126,17 @@ export default function Success() {
             </div>
           )}
         </Col>
-
         <Col md={5} />
       </Row>
 
-      <Row className="justify-content-center align-items-center">
+      <Row
+        style={{
+          fontFamily: "Roboto Condensed",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Col md={4} />
         <Col md={6}>
           {orderSummary && (
@@ -111,15 +158,20 @@ export default function Success() {
             color: "inherit",
           }}
         >
-          <div className="header-title">
-            <p style={{ marginTop: "10px", marginBottom: "50px" }}>
+          <div>
+            <p
+              style={{
+                margin: "30px",
+                fontWeight: "bold",
+                fontSize: "20px",
+                fontFamily: "Roboto Condensed",
+              }}
+            >
               Ana Sayfaya Dön
             </p>
           </div>
         </Link>
       </div>
-
-      <Footer />
     </div>
   );
 }

@@ -19,8 +19,14 @@ function PizzaCard() {
           position: "relative",
           borderRadius: "10px",
           border: "1px #CE2829",
+          fontFamily: "Quattrocento",
+          marginLeft: "310px",
+          marginTop: "100px",
+          marginRight: "20px",
+          marginBottom: "100px",
+          paddingLeft: "20px",
+          paddingTop: "20px",
         }}
-        className="home-pizza-card"
       >
         <div
           style={{
@@ -48,10 +54,24 @@ function PizzaCard() {
           />
         </div>
         <CardBody style={{ position: "relative", zIndex: 1, color: "white" }}>
-          <CardTitle tag="h2">
+          <CardTitle
+            tag="h2"
+            style={{
+              fontSize: "40px",
+              fontWeight: "bold",
+            }}
+          >
             Özel<br></br>Lezzetus
           </CardTitle>
-          <CardText>Position: Absolute Pizza</CardText>
+          <CardText
+            style={{
+              fontFamily: "Barlow-Regular",
+              fontSize: "11px",
+              fontWeight: "bold",
+            }}
+          >
+            Position: Absolute Pizza
+          </CardText>
           <Link
             to="/order/1"
             style={{ textDecoration: "none", color: "inherit" }}
@@ -59,7 +79,7 @@ function PizzaCard() {
             <Button
               style={{
                 backgroundColor: "white",
-                color: "#ce2829",
+                color: "#CE2829",
                 borderRadius: "20px",
                 fontFamily: "Barlow, sans-serif",
                 fontSize: "10px",

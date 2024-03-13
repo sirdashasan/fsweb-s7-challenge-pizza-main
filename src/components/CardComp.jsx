@@ -30,21 +30,54 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
         }}
       >
         <CardBody>
-          <CardTitle className="order-card-title">Sipariş Toplamı</CardTitle>
+          <CardTitle
+            style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}
+          >
+            Sipariş Toplamı
+          </CardTitle>
           <div className="d-flex justify-content-between align-items-center">
-            <CardText className="order-card-secimler mb-0">
+            <CardText
+              style={{
+                fontFamily: "Roboto Condensed",
+                fontWeight: "bold",
+                color: "#5f5f5f",
+              }}
+              className="mb-0"
+            >
               Seçimler (Birim Fiyat){" "}
             </CardText>
             <CardText
-              className="order-card-secimler mb-0"
+              style={{
+                fontFamily: "Roboto Condensed",
+                fontWeight: "bold",
+                color: "#5f5f5f",
+              }}
+              className="mb-0"
               data-cy="selected-price"
             >
               {selectedPrice}₺
             </CardText>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-2">
-            <CardText className="order-card-toplam mb-0">Toplam </CardText>
-            <CardText className="order-card-toplam mb-0" data-cy="total-price">
+            <CardText
+              style={{
+                fontFamily: "Roboto Condensed",
+                fontWeight: "bold",
+                color: " #ce2829",
+              }}
+              className="mb-0"
+            >
+              Toplam{" "}
+            </CardText>
+            <CardText
+              style={{
+                fontFamily: "Roboto Condensed",
+                fontWeight: "bold",
+                color: " #ce2829",
+              }}
+              className="mb-0"
+              data-cy="total-price"
+            >
               {totalPrice}₺
             </CardText>
           </div>
@@ -58,10 +91,17 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
           borderTopRightRadius: "0px",
           paddingTop: "4px",
           textAlign: "center",
+          fontFamily: "Roboto Condensed",
+          fontWeight: "bold !important",
+          width: "250px",
+          marginTop: "-5px",
+          marginLeft: "5px",
+          height: "30px",
+          marginBottom: "40px",
+          fontSize: "14px !important",
         }}
         type="button"
         color="warning"
-        className="order-card-button"
         disabled={isDisabled}
         onClick={() => {
           handleSubmit();

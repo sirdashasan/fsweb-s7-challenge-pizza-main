@@ -19,8 +19,14 @@ function BurgerCard() {
           position: "relative",
           borderRadius: "10px",
           border: "1px #292929",
+          fontFamily: "Quattrocento",
+          marginLeft: "760px",
+          marginTop: "-500px",
+          marginRight: "20px",
+          marginBottom: "100px",
+          paddingLeft: "20px",
+          paddingTop: "20px",
         }}
-        className="home-burger-card"
       >
         <div
           style={{
@@ -55,7 +61,14 @@ function BurgerCard() {
             fontFamily: "Roboto Condensed",
           }}
         >
-          <CardTitle tag="h5">
+          <CardTitle
+            tag="h5"
+            style={{
+              marginTop: "-15px",
+              marginBottom: "10px",
+              paddingTop: "18px",
+            }}
+          >
             Hackathlon<br></br>Burger Menü
           </CardTitle>
 
@@ -66,7 +79,7 @@ function BurgerCard() {
             <Button
               style={{
                 backgroundColor: "white",
-                color: "#ce2829",
+                color: "#CE2829",
                 borderRadius: "20px",
                 fontFamily: "Barlow, sans-serif",
                 fontSize: "10px",

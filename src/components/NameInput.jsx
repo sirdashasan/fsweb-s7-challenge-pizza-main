@@ -2,7 +2,10 @@ import { FormGroup, Input, Label } from "reactstrap";
 
 function NameInput({ onChange, nameError }) {
   return (
-    <div className="order-name">
+    <div
+      style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}
+      className="order-name"
+    >
       <FormGroup>
         <Label for="name">
           <div className="ad-error">

@@ -34,7 +34,21 @@ function SiparisAdet({ onQuantityChange }) {
       >
         -
       </Button>
-      <div className="order-adet-yazi ">{adet}</div>
+      <div
+        style={{
+          fontFamily: "Roboto Condensed",
+          padding: "6px 12px",
+          border: "1px solid #faf7f2",
+          borderRadius: "0px",
+          width: "30px",
+          height: "31px",
+          textAlign: "center",
+          backgroundColor: "#faf7f2",
+          fontSize: "12px",
+        }}
+      >
+        {adet}
+      </div>
       <Button
         onClick={arttir}
         className="order-adet-button"

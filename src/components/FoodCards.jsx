@@ -20,14 +20,15 @@ function FoodCards({ imageSrc, name, price, id }) {
   return (
     <div
       style={{
-        marginBottom: "70px",
+        marginBottom: "30px",
       }}
     >
       <Card
         style={{
           width: "250px",
           fontFamily: "Roboto Condensed",
-          margin: "30px",
+          marginTop: "30px",
+          marginLeft: "28px",
           border: "1px white",
           cursor: "pointer",
         }}
@@ -43,7 +44,7 @@ function FoodCards({ imageSrc, name, price, id }) {
             maxWidth: "250px",
             height: "250px",
             margin: "10px",
-            padding: "10px",
+            padding: "30px",
           }}
         />
         <CardBody>
@@ -52,13 +53,14 @@ function FoodCards({ imageSrc, name, price, id }) {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              fontSize: "14px",
             }}
             tag="h6"
           >
             {name}
           </CardTitle>
-          <CardText className="d-flex justify-content-between">
-            <span style={{ marginLeft: "180px" }}>
+          <CardText className="d-flex justify-content-end">
+            <span style={{ fontSize: "14px" }}>
               <strong>{price}₺</strong>
             </span>
           </CardText>
