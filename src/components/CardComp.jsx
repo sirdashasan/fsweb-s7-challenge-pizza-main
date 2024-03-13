@@ -35,13 +35,16 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
             <CardText className="order-card-secimler mb-0">
               Seçimler (Birim Fiyat){" "}
             </CardText>
-            <CardText className="order-card-secimler mb-0">
+            <CardText
+              className="order-card-secimler mb-0"
+              data-cy="selected-price"
+            >
               {selectedPrice}₺
             </CardText>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-2">
             <CardText className="order-card-toplam mb-0">Toplam </CardText>
-            <CardText className="order-card-toplam mb-0">
+            <CardText className="order-card-toplam mb-0" data-cy="total-price">
               {totalPrice}₺
             </CardText>
           </div>

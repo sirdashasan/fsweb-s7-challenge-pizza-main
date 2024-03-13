@@ -22,6 +22,7 @@ function SiparisNotu({ onChange, specialNote }) {
               fontFamily: "Roboto Condensed",
               fontSize: "12px",
             }}
+            data-cy="not-input"
           />
         </FormGroup>
       </div>

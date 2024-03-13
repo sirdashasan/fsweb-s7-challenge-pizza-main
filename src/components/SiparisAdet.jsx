@@ -48,6 +48,7 @@ function SiparisAdet({ onQuantityChange }) {
           border: " #FAF7F2",
           color: "#292929",
         }}
+        data-cy="adet-button-arttir-input"
       >
         +
       </Button>

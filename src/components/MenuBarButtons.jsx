@@ -7,7 +7,7 @@ function MenuBarButtons() {
     { id: 1, src: "/Assets/mile2-aseets/icons/2.svg", label: "Pizza" },
     { id: 3, src: "/Assets/mile2-aseets/icons/3.svg", label: "Burger" },
     { id: 4, src: "/Assets/mile2-aseets/icons/4.svg", label: "French fries" },
-    { id: 3, src: "/Assets/mile2-aseets/icons/5.svg", label: "Fast food" },
+    { id: 8, src: "/Assets/mile2-aseets/icons/5.svg", label: "Fast food" },
     { id: 5, src: "/Assets/mile2-aseets/icons/6.svg", label: "Soft drinks" },
   ];
 
