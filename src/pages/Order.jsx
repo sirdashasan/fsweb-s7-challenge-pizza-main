@@ -40,15 +40,29 @@ export default function Order() {
 
   const [totalPrice, setTotalPrice] = useState();
 
-  const handleQuantityChange = (quantity) => {
-    setTotalPrice(
-      quantity === "null" ? selectedPrice.price : selectedPrice.price * quantity
-    );
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+    updatePrice(selectedPrice, selectedSize, newQuantity);
+  };
+
+  const updatePrice = (selectedProduct, size, quantity) => {
+    if (!selectedProduct || !size || !quantity) return;
+
+    let sizeMultiplier = 1; // S boyutu için varsayılan
+    if (size === "M") sizeMultiplier = 1.5;
+    else if (size === "L") sizeMultiplier = 2;
+
+    const newTotalPrice = selectedProduct.price * sizeMultiplier * quantity;
+    setTotalPrice(newTotalPrice);
   };
 
   const handleSelectPrice = (productId) => {
     const selected = Products.find((product) => product.id === productId);
     setSelectedPrice(selected);
+    // Seçilen ürün değiştiğinde fiyatı güncelle
+    updatePrice(selected, selectedSize, quantity);
   };
 
   const handleSelectProduct = (productId) => {
@@ -59,6 +73,8 @@ export default function Order() {
   const handleSizeChange = (selectedValue) => {
     setSelectedSize(selectedValue);
     setIsSizeError(!selectedValue);
+    // Boyut değiştiğinde fiyatı güncelle
+    updatePrice(selectedPrice, selectedValue, quantity);
   };
 
   const handleDoughChange = (e) => {
@@ -126,7 +142,7 @@ export default function Order() {
               zIndex: 0,
             }}
           >
-            {selectedProduct && ( // Eğer bir ürün seçildiyse
+            {selectedProduct && (
               <img src={selectedProduct.image} alt={selectedProduct.name} />
             )}
           </div>
