@@ -32,7 +32,7 @@ function MenuBarButtons({ active, setActive }) {
       }}
     >
       {menuItems.map((item) => (
-        <Link key={item.id} className="menu-item">
+        <Link key={item.id} className="menu-item-buttons">
           <button
             style={{
               fontFamily: "Roboto Condensed",

@@ -2,7 +2,10 @@ import { FormGroup, Input, Label } from "reactstrap";
 
 function SiparisNotu({ handleNoteChange, note }) {
   return (
-    <div style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}>
+    <div
+      style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}
+      className="order-siparis-not"
+    >
       <div>
         <FormGroup>
           <Label for="siparisNotu">Sipariş Notu:</Label>

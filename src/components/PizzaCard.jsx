@@ -22,64 +22,34 @@ function PizzaCard() {
   return (
     <div>
       <Card
+        className="pizza-card-container"
         style={{
-          width: "430px",
-          height: "400px",
-          position: "relative",
           borderRadius: "10px",
           border: "1px #CE2829",
-          fontFamily: "Quattrocento",
-          marginLeft: "310px",
-          marginTop: "100px",
-          marginRight: "20px",
-          marginBottom: "100px",
-          paddingLeft: "20px",
-          paddingTop: "20px",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            overflow: "hidden",
-            borderRadius: "10px",
-            background: "rgba(255, 255, 255, 0.9)",
-          }}
-        >
+        <div className="pizza-card-overlay">
           <img
             alt="Card"
             src="Assets/mile2-aseets/cta/kart-1.png"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
+            className="pizza-card-image"
           />
         </div>
-        <CardBody style={{ position: "relative", zIndex: 1, color: "white" }}>
-          <CardTitle
-            tag="h2"
-            style={{
-              fontSize: "40px",
-              fontWeight: "bold",
-            }}
-          >
-            Özel<br></br>Lezzetus
+        <CardBody className="pizza-card-body">
+          <CardTitle tag="h2" className="pizza-card-title">
+            <p>
+              Özel<br></br>Lezzetus
+            </p>
           </CardTitle>
           <CardText
+            className="pizza-card-text"
             style={{
               fontFamily: "Barlow-Regular",
               fontSize: "11px",
               fontWeight: "bold",
             }}
           >
-            Position: Absolute Pizza
+            <p>Position: Absolute Pizza</p>
           </CardText>
 
           <Button
@@ -92,6 +62,7 @@ function PizzaCard() {
               padding: "10px 20px",
               border: "1px solid white",
             }}
+            className="pizza-card-order-button"
             onMouseOver={(e) => {
               e.currentTarget.style.backgroundColor = "#292929";
               e.currentTarget.style.color = "white";

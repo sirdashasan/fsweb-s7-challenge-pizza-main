@@ -10,33 +10,19 @@ import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
 
 function Footer() {
   return (
-    <div style={{ backgroundColor: "#292929" }}>
-      <div
-        className="d-flex justify-content-center"
-        style={{
-          backgroundColor: "#292929",
-          color: "white",
-          fontFamily: "Roboto Condensed",
-          marginLeft: "0px",
-          height: "400px",
-        }}
-      >
+    <div className="footer">
+      <div className="footer-content">
         <div
           style={{
             marginRight: "30px",
           }}
         >
-          <div
-            style={{
-              fontSize: "12px",
-              marginTop: "30px",
-              fontFamily: "Barlow",
-            }}
-          >
+          <div className="footer-section footer-contact-info">
             <Link
               onClick={scrollToTop}
               to="/"
               style={{ textDecoration: "none", color: "inherit" }}
+              className="footer-title"
             >
               <h2>
                 Teknolojik <br /> Yemekler

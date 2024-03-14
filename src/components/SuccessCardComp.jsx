@@ -2,7 +2,7 @@ import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 
 function SuccessCardComp({ selectedPrice, totalPrice }) {
   return (
-    <div>
+    <div className="success-card-comp-container">
       <Card
         style={{
           fontFamily: "Roboto Condensed",

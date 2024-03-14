@@ -62,43 +62,34 @@ export default function Success() {
         </Row>
 
         <Row className="success-order-summary">
-          <Col md={5} />
-          <Col md={2}>
-            <div className="success-size-dough-ingredient">
-              <p>
-                Boyut: <strong>{orderSummary?.size}</strong>
-              </p>
-              <p>
-                Hamur: <strong>{orderSummary?.dough}</strong>
-              </p>
-              <p>
-                Malzemeler:{" "}
-                {orderSummary?.ingredients?.map((ingredient, i) => {
-                  return (
-                    <p key={i}>
-                      <strong>{ingredient}</strong>
-                    </p>
-                  );
-                })}
-              </p>
-              <p>
-                Özel: <strong>{orderSummary?.note}</strong>
-              </p>
-            </div>
-          </Col>
-          <Col md={5} />
+          <div className="success-size-dough-ingredient">
+            <p>
+              Boyut: <strong>{orderSummary?.size}</strong>
+            </p>
+            <p>
+              Hamur: <strong>{orderSummary?.dough}</strong>
+            </p>
+            <p>
+              Malzemeler:{" "}
+              {orderSummary?.ingredients?.map((ingredient, i) => {
+                return (
+                  <p key={i}>
+                    <strong>{ingredient}</strong>
+                  </p>
+                );
+              })}
+            </p>
+            <p>
+              Özel: <strong>{orderSummary?.note}</strong>
+            </p>
+          </div>
         </Row>
 
         <Row className="success-selected-total-prices">
-          <Col md={4} />
-          <Col md={6}>
-            <SuccessCardComp
-              selectedPrice={orderSummary?.selectedPrice}
-              totalPrice={orderSummary?.totalPrice}
-            />
-
-            <Col md={4} />
-          </Col>
+          <SuccessCardComp
+            selectedPrice={orderSummary?.selectedPrice}
+            totalPrice={orderSummary?.totalPrice}
+          />
         </Row>
 
         <div className="success-home">

@@ -3,7 +3,7 @@ import { Button } from "reactstrap";
 
 function SiparisAdet({ handleIncrease, handleDecrease, quantity }) {
   return (
-    <div className="d-flex align-items-center">
+    <div className="d-flex align-items-center order-siparis-adet">
       <Button
         onClick={handleDecrease}
         className="order-adet-button-sol"

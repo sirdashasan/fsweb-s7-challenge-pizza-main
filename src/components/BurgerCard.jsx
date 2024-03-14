@@ -22,63 +22,24 @@ function BurgerCard() {
   return (
     <div>
       <Card
+        className="burger-card-container"
         style={{
-          width: "460px",
-          height: "195px",
-          position: "relative",
           borderRadius: "10px",
           border: "1px #292929",
-          fontFamily: "Quattrocento",
-          marginLeft: "760px",
-          marginTop: "-500px",
-          marginRight: "20px",
-          marginBottom: "100px",
-          paddingLeft: "20px",
-          paddingTop: "20px",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            overflow: "hidden",
-            borderRadius: "10px",
-            background: "rgba(255, 255, 255, 0.9)",
-          }}
-        >
+        <div className="burger-card-overlay">
           <img
             alt="Card"
             src="Assets/mile2-aseets/cta/kart-2.png"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
+            className="burger-card-image"
           />
         </div>
-        <CardBody
-          style={{
-            position: "relative",
-            zIndex: 1,
-            color: "white",
-            fontFamily: "Roboto Condensed",
-          }}
-        >
-          <CardTitle
-            tag="h5"
-            style={{
-              marginTop: "-15px",
-              marginBottom: "10px",
-              paddingTop: "18px",
-            }}
-          >
-            Hackathlon<br></br>Burger Menü
+        <CardBody className="burger-card-body">
+          <CardTitle tag="h5" className="burger-card-text">
+            <p>
+              Hackathlon<br></br>Burger Menü
+            </p>
           </CardTitle>
 
           <Button
@@ -92,6 +53,7 @@ function BurgerCard() {
               border: "1px solid white",
               marginTop: "10px",
             }}
+            className="burger-order-button"
             onMouseOver={(e) => {
               e.currentTarget.style.backgroundColor = "#292929";
               e.currentTarget.style.color = "white";

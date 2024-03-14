@@ -34,7 +34,7 @@ export default function Anasayfa() {
           <div>
             <PizzaCard />
           </div>
-          <div style={{ display: "flex" }}>
+          <div>
             <BurgerCard />
             <KuryeCard />
           </div>

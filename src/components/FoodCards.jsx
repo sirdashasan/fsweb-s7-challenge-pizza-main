@@ -23,11 +23,7 @@ function FoodCards({ imageSrc, name, price, id }) {
   };
 
   return (
-    <div
-      style={{
-        marginBottom: "30px",
-      }}
-    >
+    <div className="food-card-container">
       <Card
         style={{
           width: "250px",
@@ -37,34 +33,18 @@ function FoodCards({ imageSrc, name, price, id }) {
           border: "1px white",
           cursor: "pointer",
         }}
+        className="food-card"
         onClick={() => {
           handleClick();
           scrollToTop();
         }}
       >
-        <img
-          alt="Sample"
-          src={imageSrc}
-          style={{
-            maxWidth: "250px",
-            height: "250px",
-            margin: "10px",
-            padding: "30px",
-          }}
-        />
+        <img alt="Sample" src={imageSrc} className="food-card-img" />
         <CardBody>
-          <CardTitle
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              fontSize: "14px",
-            }}
-            tag="h6"
-          >
+          <CardTitle className="food-card-title" tag="h6">
             {name}
           </CardTitle>
-          <CardText className="d-flex justify-content-end">
+          <CardText className="food-card-price">
             <span style={{ fontSize: "14px" }}>
               <strong>{price}₺</strong>
             </span>

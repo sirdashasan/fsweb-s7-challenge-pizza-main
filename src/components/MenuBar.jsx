@@ -26,39 +26,11 @@ function MenuBar({ id, name, price }) {
   ];
 
   return (
-    <div
-      className="menu-bar"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        alignContent: "center",
-        fontFamily: "Roboto Condensed",
-        top: "0",
-        width: "100%",
-        bottom: "0",
-        left: "0",
-        backgroundColor: "white",
-        zIndex: "1000",
-        height: "80px",
-        color: "#292929",
-      }}
-    >
+    <div className="menu-bar">
       {menuItems.map((item) => (
         <Link
           className="menu-item"
           key={item.id}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            alignContent: "center",
-            paddingLeft: "15px",
-            margin: "20px",
-            alignItems: "center",
-            color: "#292929",
-            textDecoration: "none",
-          }}
           onClick={() => {
             handleClick(item.id, item.name, item.price);
             scrollToTop();

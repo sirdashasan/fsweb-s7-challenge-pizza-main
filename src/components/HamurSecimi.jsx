@@ -1,12 +1,15 @@
 function HamurSecimi({ dough, handleDoughChange }) {
   return (
     <div>
-      <div style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}>
+      <div
+        style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}
+        className="hamur-title"
+      >
         <div>
           <p>Hamur Seç {!dough && <span className="text-danger">*</span>}</p>
         </div>
       </div>
-      <div className="hamur-title">
+      <div>
         <select
           className="hamur-select"
           name="dough"

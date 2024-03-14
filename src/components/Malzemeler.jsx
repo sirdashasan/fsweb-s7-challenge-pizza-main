@@ -34,7 +34,7 @@ function Malzemeler({ handleIngredientsChange, ingredients }) {
       </div>
       <Row className="malzemeler-row">
         {malzemeler.map((item, i) => (
-          <Col md={4} key={i} className="mb-2">
+          <Col md={4} key={i} className="mb-2 malzemeler-col">
             <label>
               <input
                 id="malzemeler-checkbox"

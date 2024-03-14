@@ -18,7 +18,7 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
   };
 
   return (
-    <div>
+    <div className="order-card-all-container">
       <Card
         className="order-card-container"
         style={{
