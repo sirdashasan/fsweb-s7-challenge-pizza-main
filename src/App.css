@@ -334,9 +334,9 @@
 }
 
 .food-card-price {
+  font-size: 12px;
   display: flex;
-  justify-content: end;
-  font-size: 14px;
+  justify-content: space-between;
 }
 
 .footer {
@@ -358,7 +358,7 @@
 
 .footer-section h2,
 .footer-section h6 {
-  margin-top: 30px;
+  margin-top: 60px;
   font-family: "Barlow", sans-serif;
   font-size: 12px;
 }

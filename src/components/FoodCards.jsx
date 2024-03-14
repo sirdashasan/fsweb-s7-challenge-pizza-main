@@ -10,7 +10,7 @@ import {
 import Products from "./Products";
 import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
 
-function FoodCards({ imageSrc, name, price, id }) {
+function FoodCards({ imageSrc, name, price, id, score, comment }) {
   const history = useHistory();
 
   const handleClick = () => {
@@ -18,6 +18,8 @@ function FoodCards({ imageSrc, name, price, id }) {
       order: {
         name,
         price,
+        score,
+        comment,
       },
     });
   };
@@ -45,9 +47,10 @@ function FoodCards({ imageSrc, name, price, id }) {
             {name}
           </CardTitle>
           <CardText className="food-card-price">
-            <span style={{ fontSize: "14px" }}>
-              <strong>{price}₺</strong>
-            </span>
+            {" "}
+            <p>Puan: {score}</p>
+            <p>Yorumlar: {comment}</p>
+            <strong>Fiyat: {price}₺</strong>
           </CardText>
         </CardBody>
       </Card>

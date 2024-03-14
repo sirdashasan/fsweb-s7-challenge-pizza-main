@@ -95,6 +95,8 @@ export default function Anasayfa() {
                     imageSrc={product.image}
                     name={product.name}
                     price={product.price}
+                    score={product.score}
+                    comment={product.comment}
                     id={product.id}
                   />
 

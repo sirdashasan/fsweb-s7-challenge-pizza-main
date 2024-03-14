@@ -24,7 +24,7 @@ function Footer() {
               style={{ textDecoration: "none", color: "inherit" }}
               className="footer-title"
             >
-              <h2>
+              <h2 style={{ fontSize: "36px" }}>
                 Teknolojik <br /> Yemekler
               </h2>
             </Link>
@@ -36,23 +36,28 @@ function Footer() {
             }}
           >
             <p>
-              <FontAwesomeIcon icon={faMapMarkerAlt} /> 341 Londonderry Road,
+              <FontAwesomeIcon
+                style={{ fontSize: "20px" }}
+                icon={faMapMarkerAlt}
+              />{" "}
+              341 Londonderry Road,
               <br />
               Istanbul Türkiye
             </p>
             <p>
-              <FontAwesomeIcon icon={faEnvelope} />{" "}
+              <FontAwesomeIcon style={{ fontSize: "20px" }} icon={faEnvelope} />{" "}
               aciktim@teknolojikyemekler.com
             </p>
             <p>
-              <FontAwesomeIcon icon={faPhone} /> +90 216 123 45 67
+              <FontAwesomeIcon style={{ fontSize: "20px" }} icon={faPhone} />{" "}
+              +90 216 123 45 67
             </p>
           </div>
         </div>
         <div>
           <h6
             style={{
-              marginTop: "60px",
+              marginTop: "100px",
               marginBottom: "55px",
             }}
           >
@@ -61,6 +66,7 @@ function Footer() {
           <div
             style={{
               fontSize: "10px",
+              marginTop: "60px",
             }}
           >
             <p style={{ margin: "5px 0" }}>Terminal Pizza</p>
@@ -72,36 +78,44 @@ function Footer() {
           </div>
         </div>
         <div style={{ marginLeft: "250px" }}>
-          <h6 style={{ marginTop: "55px" }}>Instagram</h6>
+          <h6 style={{ marginTop: "100px" }}>Instagram</h6>
           <div className="d-flex flex-column">
             <div
               className="d-flex"
               style={{ marginBottom: "10px", marginRight: "10px" }}
             >
               <img
-                style={{ marginRight: "10px" }}
+                style={{ marginRight: "10px", width: "70px", height: "70px" }}
                 src="/Assets/mile2-aseets/footer/insta/li-0.png"
                 alt=""
               />
               <img
-                style={{ marginRight: "10px" }}
+                style={{ marginRight: "10px", width: "70px", height: "70px" }}
                 src="/Assets/mile2-aseets/footer/insta/li-1.png"
                 alt=""
               />
-              <img src="/Assets/mile2-aseets/footer/insta/li-2.png" alt="" />
+              <img
+                style={{ marginRight: "10px", width: "70px", height: "70px" }}
+                src="/Assets/mile2-aseets/footer/insta/li-2.png"
+                alt=""
+              />
             </div>
             <div className="d-flex">
               <img
-                style={{ marginRight: "10px" }}
+                style={{ marginRight: "10px", width: "70px", height: "70px" }}
                 src="/Assets/mile2-aseets/footer/insta/li-3.png"
                 alt=""
               />
               <img
-                style={{ marginRight: "10px" }}
+                style={{ marginRight: "10px", width: "70px", height: "70px" }}
                 src="/Assets/mile2-aseets/footer/insta/li-4.png"
                 alt=""
               />
-              <img src="/Assets/mile2-aseets/footer/insta/li-5.png" alt="" />
+              <img
+                style={{ marginRight: "10px", width: "70px", height: "70px" }}
+                src="/Assets/mile2-aseets/footer/insta/li-5.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -119,6 +133,7 @@ function Footer() {
             style={{
               position: "absolute",
               marginTop: "-10px",
+
               width: "%100",
             }}
           />
