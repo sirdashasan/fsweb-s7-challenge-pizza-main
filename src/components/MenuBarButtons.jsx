@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
 
-function MenuBarButtons() {
+function MenuBarButtons({ active, setActive }) {
   const menuItems = [
     { id: 2, src: "/Assets/mile2-aseets/icons/1.svg", label: "Ramen" },
     { id: 1, src: "/Assets/mile2-aseets/icons/2.svg", label: "Pizza" },
@@ -10,6 +10,11 @@ function MenuBarButtons() {
     { id: 8, src: "/Assets/mile2-aseets/icons/5.svg", label: "Fast food" },
     { id: 5, src: "/Assets/mile2-aseets/icons/6.svg", label: "Soft drinks" },
   ];
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setActive(e.target.name);
+  };
 
   return (
     <div
@@ -27,14 +32,14 @@ function MenuBarButtons() {
       }}
     >
       {menuItems.map((item) => (
-        <Link key={item.id} to={`/order/${item.id}`} className="menu-item">
+        <Link key={item.id} className="menu-item">
           <button
             style={{
               fontFamily: "Roboto Condensed",
               fontWeight: "500",
               borderRadius: "50px",
-              backgroundColor: "white",
-              color: "#292929",
+              backgroundColor: active === item.label ? "#292929" : "white",
+              color: active !== item.label ? "#292929" : "white",
               border: "2px solid white",
               padding: "0px 0px",
               alignContent: "center",
@@ -45,15 +50,9 @@ function MenuBarButtons() {
               width: "114px",
               height: "50px",
             }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = "#292929";
-              e.currentTarget.style.color = "white";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = "white";
-              e.currentTarget.style.color = "#292929";
-            }}
-            onClick={scrollToTop}
+            name={item.label}
+            onClick={handleClick}
+            //onClick={scrollToTop}
           >
             <img
               src={item.src}

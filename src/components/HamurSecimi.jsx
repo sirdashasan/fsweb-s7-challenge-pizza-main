@@ -1,30 +1,18 @@
-function HamurSecimi({ onChange, hamurError, selectedDough }) {
+function HamurSecimi({ dough, handleDoughChange }) {
   return (
     <div>
       <div style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}>
         <div>
-          <p>
-            Hamur Seç {hamurError && <span className="text-danger">*</span>}
-          </p>
+          <p>Hamur Seç {!dough && <span className="text-danger">*</span>}</p>
         </div>
       </div>
-      <div
-        style={{
-          fontFamily: "Roboto Condensed",
-          fontSize: "12px",
-        }}
-      >
+      <div className="hamur-title">
         <select
-          onChange={onChange}
-          value={selectedDough}
+          className="hamur-select"
+          name="dough"
+          onChange={handleDoughChange}
+          value={dough}
           data-cy="hamur-select"
-          style={{
-            height: "40px",
-            width: "200px",
-            backgroundColor: "#FAF7F2",
-            border: "none",
-            borderRadius: "5px",
-          }}
         >
           <option value="">-- Hamur Kalınlığı Seç --</option>
           <option value="Kalın Kenar">Kalın Kenar</option>

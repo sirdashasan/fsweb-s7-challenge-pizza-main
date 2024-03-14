@@ -1,11 +1,14 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Button } from "reactstrap";
+import Products from "./Products";
 
 function HomeButton() {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push("/order/1");
+    history.push("/order/1", {
+      order: Products[0],
+    });
   };
 
   return (

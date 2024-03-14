@@ -20,6 +20,7 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
   return (
     <div>
       <Card
+        className="order-card-container"
         style={{
           backgroundColor: "#FAF7F2",
           border: "#FAF7F2",
@@ -30,22 +31,9 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
         }}
       >
         <CardBody>
-          <CardTitle
-            style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}
-          >
-            Sipariş Toplamı
-          </CardTitle>
+          <CardTitle className="order-card-title">Sipariş Toplamı</CardTitle>
           <div className="d-flex justify-content-between align-items-center">
-            <CardText
-              style={{
-                fontFamily: "Roboto Condensed",
-                fontWeight: "bold",
-                color: "#5f5f5f",
-              }}
-              className="mb-0"
-            >
-              Seçimler (Birim Fiyat){" "}
-            </CardText>
+            <CardText className="mb-0 order-card-secimler">Seçimler </CardText>
             <CardText
               style={{
                 fontFamily: "Roboto Condensed",
@@ -59,25 +47,8 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
             </CardText>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-2">
-            <CardText
-              style={{
-                fontFamily: "Roboto Condensed",
-                fontWeight: "bold",
-                color: " #ce2829",
-              }}
-              className="mb-0"
-            >
-              Toplam{" "}
-            </CardText>
-            <CardText
-              style={{
-                fontFamily: "Roboto Condensed",
-                fontWeight: "bold",
-                color: " #ce2829",
-              }}
-              className="mb-0"
-              data-cy="total-price"
-            >
+            <CardText className="mb-0 order-card-toplam">Toplam </CardText>
+            <CardText className="mb-0 order-card-toplam" data-cy="total-price">
               {totalPrice}₺
             </CardText>
           </div>
@@ -100,6 +71,7 @@ function CardComp({ isDisabled, handleSubmit, selectedPrice, totalPrice }) {
           marginBottom: "40px",
           fontSize: "14px !important",
         }}
+        className="order-card-button"
         type="button"
         color="warning"
         disabled={isDisabled}

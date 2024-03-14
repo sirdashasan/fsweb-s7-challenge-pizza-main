@@ -1,26 +1,12 @@
 import { useState } from "react";
 import { Button } from "reactstrap";
 
-function SiparisAdet({ onQuantityChange }) {
-  const [adet, setAdet] = useState(1);
-
-  const arttir = () => {
-    const yeniAdet = adet + 1;
-    setAdet(yeniAdet);
-    onQuantityChange(yeniAdet);
-  };
-
-  const azalt = () => {
-    const yeniAdet = adet > 1 ? adet - 1 : 1;
-    setAdet(yeniAdet);
-    onQuantityChange(yeniAdet);
-  };
-
+function SiparisAdet({ handleIncrease, handleDecrease, quantity }) {
   return (
     <div className="d-flex align-items-center">
       <Button
-        onClick={azalt}
-        className="order-adet-button"
+        onClick={handleDecrease}
+        className="order-adet-button-sol"
         style={{
           borderTopLeftRadius: "4px",
           borderBottomLeftRadius: "4px",
@@ -34,24 +20,10 @@ function SiparisAdet({ onQuantityChange }) {
       >
         -
       </Button>
-      <div
-        style={{
-          fontFamily: "Roboto Condensed",
-          padding: "6px 12px",
-          border: "1px solid #faf7f2",
-          borderRadius: "0px",
-          width: "30px",
-          height: "31px",
-          textAlign: "center",
-          backgroundColor: "#faf7f2",
-          fontSize: "12px",
-        }}
-      >
-        {adet}
-      </div>
+      <div className="order-adet-yazi">{quantity}</div>
       <Button
-        onClick={arttir}
-        className="order-adet-button"
+        onClick={handleIncrease}
+        className="order-adet-button-sag"
         style={{
           borderTopLeftRadius: "0",
           borderBottomLeftRadius: "0",

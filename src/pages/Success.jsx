@@ -10,167 +10,120 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Footer from "../components/Footer";
 
 export default function Success() {
-  const location = useLocation();
-  const formData = location.state ? location.state.formData : null;
-
-  const [orderSummary, setOrderSummary] = useState(null);
-
+  const [orderSummary, setOrderSummary] = useState();
   useEffect(() => {
-    if (formData) {
-      axios
-        .post("https://reqres.in/api/pizza", formData)
-        .then((response) => {
-          setOrderSummary(response.data);
-        })
-        .catch((error) => {
-          console.warn("Sipariş gönderilirken hata oluştu:", error);
-        });
-    }
-  }, [formData]);
+    setOrderSummary(location.state);
+  }, []);
+  const location = useLocation();
+
+  console.log(orderSummary);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#ce2829",
-        color: "white",
-        minHeight: "100vh",
-      }}
-    >
-      <Header />
+    <div>
+      <div className="success-container">
+        <Header />
 
-      <Row>
-        <Col md={4} />
-        <Col md={4}>
-          <SuccessYazisi />
-        </Col>
-        <Col md={4} />
-      </Row>
-
-      <div>
-        {orderSummary && (
-          <p
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignContent: "center",
-              alignItems: "center",
-              fontFamily: "Barlow-Regular",
-              fontSize: "24px",
-            }}
-          >
-            <strong> {orderSummary.isim}!</strong>
-          </p>
-        )}
-      </div>
-
-      <Row className="mt-3">
-        <Col md={4} />
-        <Col md={4}>
-          <LineComp />
-        </Col>
-        <Col md={4} />
-      </Row>
-
-      <Row
-        style={{
-          marginTop: "20px",
-        }}
-      >
-        <Col md={4} />
-        <Col md={4}>
-          <h5
-            style={{
-              fontFamily: "Roboto Condensed",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            Position Absolute Acılı Pizza
-          </h5>
+        <Row>
           <Col md={4} />
-        </Col>
-      </Row>
+          <Col md={4}>
+            <SuccessYazisi />
+          </Col>
+          <Col md={4} />
+        </Row>
 
-      <Row
-        style={{
-          fontFamily: "Barlow-Regular",
-          fontSize: "12px",
-          paddingLeft: "30px",
-          marginBottom: "40px",
-          marginTop: "30px",
-        }}
-      >
-        <Col md={5} />
-        <Col md={2}>
-          {orderSummary && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                flexDirection: "column",
-              }}
-            >
+        <div>
+          <p className="success-name">
+            <strong> {orderSummary?.name}!</strong>
+          </p>
+        </div>
+
+        <Row className="mt-3">
+          <Col md={4} />
+          <Col md={4}>
+            <LineComp />
+          </Col>
+          <Col md={4} />
+        </Row>
+
+        <Row
+          style={{
+            marginTop: "20px",
+          }}
+        >
+          <Col md={4} />
+          <Col md={4}>
+            <h5 className="success-selected-product">
               <p>
-                Boyut: <strong>{orderSummary.boyut}</strong>
+                <strong>{orderSummary?.selectedProduct}</strong>
+              </p>
+            </h5>
+            <Col md={4} />
+          </Col>
+        </Row>
+
+        <Row className="success-order-summary">
+          <Col md={5} />
+          <Col md={2}>
+            <div className="success-size-dough-ingredient">
+              <p>
+                Boyut: <strong>{orderSummary?.size}</strong>
               </p>
               <p>
-                Hamur: <strong>{orderSummary.hamur}</strong>
+                Hamur: <strong>{orderSummary?.dough}</strong>
               </p>
               <p>
                 Malzemeler:{" "}
-                <strong>{orderSummary.malzemeler.join(", ")}</strong>
+                {orderSummary?.ingredients?.map((ingredient, i) => {
+                  return (
+                    <p key={i}>
+                      <strong>{ingredient}</strong>
+                    </p>
+                  );
+                })}
               </p>
               <p>
-                Özel: <strong>{orderSummary.ozel}</strong>
+                Özel: <strong>{orderSummary?.note}</strong>
               </p>
             </div>
-          )}
-        </Col>
-        <Col md={5} />
-      </Row>
+          </Col>
+          <Col md={5} />
+        </Row>
 
-      <Row
-        style={{
-          fontFamily: "Roboto Condensed",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Col md={4} />
-        <Col md={6}>
-          {orderSummary && (
-            <SuccessCardComp
-              selectedPrice={orderSummary.fiyat}
-              totalPrice={orderSummary.toplamFiyat}
-            />
-          )}
+        <Row className="success-selected-total-prices">
           <Col md={4} />
-        </Col>
-      </Row>
+          <Col md={6}>
+            <SuccessCardComp
+              selectedPrice={orderSummary?.selectedPrice}
+              totalPrice={orderSummary?.totalPrice}
+            />
 
-      <div>
-        <Link
-          to="/"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            color: "inherit",
-          }}
-        >
-          <div>
-            <p
-              style={{
-                margin: "30px",
-                fontWeight: "bold",
-                fontSize: "20px",
-                fontFamily: "Roboto Condensed",
-              }}
-            >
-              Ana Sayfaya Dön
-            </p>
-          </div>
-        </Link>
+            <Col md={4} />
+          </Col>
+        </Row>
+
+        <div className="success-home">
+          <Link
+            to="/"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              color: "inherit",
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  margin: "30px",
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  fontFamily: "Roboto Condensed",
+                }}
+              >
+                Ana Sayfaya Dön
+              </p>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );

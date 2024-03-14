@@ -6,10 +6,19 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
+import Products from "./Products";
 
 function PizzaCard() {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/order/1", {
+      order: Products[0],
+    });
+  };
+
   return (
     <div>
       <Card
@@ -72,34 +81,33 @@ function PizzaCard() {
           >
             Position: Absolute Pizza
           </CardText>
-          <Link
-            to="/order/1"
-            style={{ textDecoration: "none", color: "inherit" }}
+
+          <Button
+            style={{
+              backgroundColor: "white",
+              color: "#CE2829",
+              borderRadius: "20px",
+              fontFamily: "Barlow, sans-serif",
+              fontSize: "10px",
+              padding: "10px 20px",
+              border: "1px solid white",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = "#292929";
+              e.currentTarget.style.color = "white";
+              e.currentTarget.style.border = "#292929";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = "white";
+              e.currentTarget.style.color = "#292929";
+            }}
+            onClick={() => {
+              handleClick();
+              scrollToTop();
+            }}
           >
-            <Button
-              style={{
-                backgroundColor: "white",
-                color: "#CE2829",
-                borderRadius: "20px",
-                fontFamily: "Barlow, sans-serif",
-                fontSize: "10px",
-                padding: "10px 20px",
-                border: "1px solid white",
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = "#292929";
-                e.currentTarget.style.color = "white";
-                e.currentTarget.style.border = "#292929";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = "white";
-                e.currentTarget.style.color = "#292929";
-              }}
-              onClick={scrollToTop}
-            >
-              SİPARİŞ VER
-            </Button>
-          </Link>
+            SİPARİŞ VER
+          </Button>
         </CardBody>
       </Card>
     </div>

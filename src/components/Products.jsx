@@ -6,6 +6,9 @@ const products = [
     description:
       "Frontend Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.",
     image: "/Assets/mile2-aseets/pictures/food-2.png",
+    type: "Pizza",
+    score: 4.9,
+    comment: 250,
   },
   {
     id: 2,
@@ -14,6 +17,9 @@ const products = [
     description:
       "Çin'in bağrından kopmuş gelmiş bir Ramen. Höpürdete höpürdete iç.",
     image: "/Assets/mile2-aseets/pictures/ramen.png",
+    type: "Ramen",
+    score: 4.9,
+    comment: 250,
   },
   {
     id: 3,
@@ -22,6 +28,9 @@ const products = [
     description:
       "Eve kapandın çalışıyorsun ama acıktın mı? Bu burger özel sosuyla tam da ağzına layık!",
     image: "/Assets/mile2-aseets/pictures/burger-2.png",
+    type: "Burger",
+    score: 4.9,
+    comment: 250,
   },
   {
     id: 4,
@@ -29,6 +38,9 @@ const products = [
     price: 50,
     description: "Çıtır çıtır patates kızartması",
     image: "/Assets/mile2-aseets/pictures/fries.png",
+    type: "French fries",
+    score: 4.9,
+    comment: 250,
   },
   {
     id: 5,
@@ -36,6 +48,9 @@ const products = [
     price: 20,
     description: "Yemek kuru kuru gitmez yazılımcının mazotu kafein seninle...",
     image: "/Assets/mile2-aseets/pictures/coke.png",
+    type: "Soft drinks",
+    score: 4.9,
+    comment: 250,
   },
   {
     id: 6,
@@ -43,6 +58,9 @@ const products = [
     price: 89,
     description: "npm run dev pizzanın tadını çıkar",
     image: "/Assets/mile2-aseets/pictures/food-1.png",
+    type: "Pizza",
+    score: 4.9,
+    comment: 250,
   },
   {
     id: 7,
@@ -50,6 +68,9 @@ const products = [
     price: 99,
     description: "Hayat gibi acı tatlı sosuyla...",
     image: "/Assets/mile2-aseets/pictures/food-2.png",
+    type: "Pizza",
+    score: 4.9,
+    comment: 250,
   },
   {
     id: 8,
@@ -58,6 +79,9 @@ const products = [
     description:
       "Yaşam döngün boyunca takip edebileceğin ve yiyebileceğin bir burger seninle...",
     image: "/Assets/mile2-aseets/pictures/food-3.png",
+    type: "Burger",
+    score: 4.9,
+    comment: 250,
   },
 ];
 

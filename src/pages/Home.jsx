@@ -10,8 +10,11 @@ import MenuBar from "../components/MenuBar";
 import MenuBarButtons from "../components/MenuBarButtons";
 import PizzaCard from "../components/PizzaCard";
 import Products from "../components/Products.jsx";
+import { useState } from "react";
 
 export default function Anasayfa() {
+  const [active, setActive] = useState("Pizza");
+
   return (
     <div>
       <div className="home-container">
@@ -19,10 +22,13 @@ export default function Anasayfa() {
         <HomeYazisi />
         <HomeButton />
       </div>
+
       <div style={{ backgroundColor: "#FAF7F2" }}>
-        <div>
+        <Row>
+          <Col md={3} />
           <MenuBar />
-        </div>
+          <Col md={9} />
+        </Row>
 
         <div>
           <div>
@@ -62,7 +68,7 @@ export default function Anasayfa() {
           </span>
         </div>
 
-        <MenuBarButtons />
+        <MenuBarButtons active={active} setActive={setActive} />
         <div
           style={{
             display: "flex",
@@ -73,27 +79,33 @@ export default function Anasayfa() {
           }}
           className="d-flex justify-content-center gx-3"
         >
-          {Products.map((product, index) => (
-            <div
-              key={product.id}
-              style={{
-                width: "30%",
-                padding: "1px",
+          {Products.map(
+            (product, index) =>
+              active === product.type && (
+                <div
+                  key={product.id}
+                  style={{
+                    width: "30%",
+                    padding: "1px",
+                    textAlign: "center",
+                  }}
+                >
+                  <FoodCards
+                    key={product.id}
+                    imageSrc={product.image}
+                    name={product.name}
+                    price={product.price}
+                    id={product.id}
+                  />
 
-                textAlign: "center",
-              }}
-            >
-              <FoodCards
-                key={product.id}
-                imageSrc={product.image}
-                name={product.name}
-                price={product.price}
-                id={product.id}
-              />
-              {(index + 1) % 3 === 0 && <div style={{ clear: "both" }}></div>}
-            </div>
-          ))}
+                  {(index + 1) % 3 === 0 && (
+                    <div style={{ clear: "both" }}></div>
+                  )}
+                </div>
+              )
+          )}
         </div>
+
         <Footer />
       </div>
     </div>

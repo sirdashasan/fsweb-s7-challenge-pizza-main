@@ -8,203 +8,177 @@ import CardComp from "../components/CardComp";
 import { Col, Row } from "reactstrap";
 import OrderYazilar from "../components/OrderYazilar";
 import NameInput from "../components/NameInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderNav from "../components/HeaderNav";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Order() {
+  const location = useLocation();
+  const { order } = location.state;
+
+  const [orderDetails, setOrderDetails] = useState({
+    size: null,
+    dough: "",
+    ingredients: [],
+    name: "",
+    note: "",
+    selectedProduct: order?.name,
+    selectedPrice: 0,
+    totalPrice: order?.price,
+    quantity: 1,
+  });
+
   const history = useHistory();
-  const [selectedSize, setSelectedSize] = useState("");
-  const [isSizeError, setIsSizeError] = useState(true); // Başta * görünmesi için true yaptım
 
-  const [selectedDough, setSelectedDough] = useState("");
-  const [isDoughError, setIsDoughError] = useState(true);
-
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
-  const isIngredientsError =
-    selectedIngredients.length < 4 || selectedIngredients.length > 10;
-
-  const [name, setName] = useState("");
-  const [isNameError, setIsNameError] = useState(true);
-
-  const [specialNote, setSpecialNote] = useState("");
-
-  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
-
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const [selectedPrice, setSelectedPrice] = useState();
-
-  const [totalPrice, setTotalPrice] = useState();
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleQuantityChange = (newQuantity) => {
-    setQuantity(newQuantity);
-    updatePrice(selectedPrice, selectedSize, newQuantity);
+  const handleChange = (e) => {
+    e.preventDefault();
+    setOrderDetails({
+      ...orderDetails,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const updatePrice = (selectedProduct, size, quantity) => {
-    if (!selectedProduct || !size || !quantity) return;
-
-    let sizeMultiplier = 1; // S boyutu için varsayılan
-    if (size === "M") sizeMultiplier = 1.5;
-    else if (size === "L") sizeMultiplier = 2;
-
-    const newTotalPrice = selectedProduct.price * sizeMultiplier * quantity;
-    setTotalPrice(newTotalPrice);
+  const handleIngredientsChange = (e) => {
+    if (orderDetails.ingredients.includes(e.target.value)) {
+      setOrderDetails({
+        ...orderDetails,
+        ingredients: orderDetails.ingredients.filter(
+          (item) => item !== e.target.value
+        ),
+      });
+    } else {
+      setOrderDetails({
+        ...orderDetails,
+        ingredients: [...orderDetails.ingredients, e.target.value],
+      });
+    }
   };
 
-  const handleSelectPrice = (productId) => {
-    const selected = Products.find((product) => product.id === productId);
-    setSelectedPrice(selected);
-    // Seçilen ürün değiştiğinde fiyatı güncelle
-    updatePrice(selected, selectedSize, quantity);
+  const handleIncrease = (e) => {
+    e.preventDefault();
+    setOrderDetails({
+      ...orderDetails,
+      quantity: orderDetails.quantity + 1,
+    });
   };
 
-  const handleSelectProduct = (productId) => {
-    const selected = Products.find((product) => product.id === productId);
-    setSelectedProduct(selected);
+  const handleDecrease = (e) => {
+    e.preventDefault();
+    setOrderDetails({
+      ...orderDetails,
+      quantity: orderDetails.quantity > 1 ? orderDetails.quantity - 1 : 1,
+    });
   };
 
-  const handleSizeChange = (selectedValue) => {
-    setSelectedSize(selectedValue);
-    setIsSizeError(!selectedValue);
-    // Boyut değiştiğinde fiyatı güncelle
-    updatePrice(selectedPrice, selectedValue, quantity);
+  const calculatePrice = () => {
+    let newPrice = orderDetails.selectedPrice;
+    if (orderDetails.size === "S") {
+      newPrice = order.price;
+    } else if (orderDetails.size === "M") {
+      newPrice = order.price * 1.25;
+    } else if (orderDetails.size === "L") {
+      newPrice = order.price * 2;
+    }
+
+    const ingredientsPrice =
+      orderDetails.ingredients.length * 5 * orderDetails.quantity;
+    setOrderDetails({
+      ...orderDetails,
+      selectedPrice: ingredientsPrice,
+      totalPrice: newPrice * orderDetails.quantity + ingredientsPrice,
+    });
   };
 
-  const handleDoughChange = (e) => {
-    setSelectedDough(e.target.value);
-    setIsDoughError(e.target.value === ""); // Eğer seçilen değer boşsa hata true olsun
-  };
+  useEffect(() => {
+    calculatePrice();
+  }, [orderDetails.size, orderDetails.ingredients, orderDetails.quantity]);
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-    setIsNameError(e.target.value.length < 3);
-  };
-
-  const handleSpecialNoteChange = (e) => {
-    setSpecialNote(e.target.value);
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        "https://reqres.in/api/pizza",
+        orderDetails
+      );
+      if (response.status === 201) {
+        history.push("/success", response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const isOrderButtonDisabled =
-    !selectedSize || !selectedDough || isIngredientsError || isNameError;
+    !orderDetails.size ||
+    !orderDetails.dough ||
+    orderDetails.ingredients.length === 0 ||
+    orderDetails.name.length < 3;
 
-  const handleSubmit = () => {
-    const formData = {
-      isim: name,
-      boyut: selectedSize,
-      hamur: selectedDough,
-      malzemeler: selectedIngredients,
-      ozel: specialNote,
-      fiyat: selectedPrice.price,
-      toplamFiyat: totalPrice,
-    };
-
-    axios
-      .post("https://reqres.in/api/pizza", formData)
-      .then((response) => {
-        setIsOrderPlaced(true);
-        history.push("/success", { formData });
-        console.log("Sipariş özeti:", response.data);
-      })
-      .catch((error) => {
-        console.warn("Sipariş gönderilirken hata oluştu:", error);
-      });
-  };
+  console.log(orderDetails);
 
   return (
     <div className="d-flex  flex-column">
-      <div
-        style={{
-          backgroundColor: " #CE2829",
-          height: "80px",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1,
-        }}
-      >
+      <div className="order-header-container">
         <Header />
       </div>
 
-      <div style={{ backgroundColor: "#FAF7F2" }}>
-        <div className="d-flex justify-content-center">
-          <div
-            style={{
-              marginTop: "40px",
-              marginBottom: "20px",
-              marginLeft: "120px",
-              position: "relative",
-              zIndex: 0,
-            }}
-          >
-            {selectedProduct && (
-              <img src={selectedProduct.image} alt={selectedProduct.name} />
-            )}
-          </div>
-        </div>
-
-        <Row className="mt-3">
-          <Col md={4} />
-          <Col md={4}>
-            <OrderYazilar
-              onSelectProduct={handleSelectProduct}
-              onSelectPrice={handleSelectPrice}
-            />
-          </Col>
-          <Col md={4} />
-        </Row>
-      </div>
-
-      <Row
-        style={{
-          marginTop: "20px",
-        }}
-        className=" mb-3"
-      >
+      <Row className="mt-3 order-yazilar-container">
         <Col md={4} />
-        <Col md={2}>
-          <PizzaBoyutu onChange={handleSizeChange} boyutError={isSizeError} />
-        </Col>
-
-        <Col md={2}>
-          <HamurSecimi onChange={handleDoughChange} hamurError={isDoughError} />
+        <Col md={4}>
+          <OrderYazilar
+            selectedPrice={orderDetails.totalPrice} // selectedprice değiştim
+            selectedProduct={orderDetails?.selectedProduct}
+          />
         </Col>
         <Col md={4} />
       </Row>
 
-      <Row className="justify-content-center">
+      <Row className="mt-3">
+        <Col md={4} />
+        <Col md={2}>
+          <PizzaBoyutu
+            size={orderDetails.size}
+            handleSizeChange={handleChange}
+          />
+        </Col>
+
+        <Col md={2}>
+          <HamurSecimi
+            dough={orderDetails.dough}
+            handleDoughChange={handleChange}
+          />
+        </Col>
+        <Col md={4} />
+      </Row>
+
+      <Row className="order-malzemeler">
         <Col md={4} />
         <Col md={4}>
           <Malzemeler
-            selectedIngredients={selectedIngredients}
-            setSelectedIngredients={setSelectedIngredients}
-            malzemelerError={isIngredientsError}
+            ingredients={orderDetails.ingredients}
+            handleIngredientsChange={handleIngredientsChange}
           />
         </Col>
         <Col md={4} />
       </Row>
 
-      <Row>
+      <Row className="order-name">
         <Col md={4} />
         <Col md={4}>
-          <NameInput onChange={handleNameChange} nameError={isNameError} />
+          <NameInput name={orderDetails.name} handleNameChange={handleChange} />
         </Col>
         <Col md={4} />
       </Row>
 
-      <Row>
+      <Row class="order-not">
         <Col md={4} />
         <Col md={4}>
           <SiparisNotu
-            onChange={handleSpecialNoteChange}
-            specialNote={specialNote}
+            note={orderDetails.note}
+            handleNoteChange={handleChange}
           />
         </Col>
         <Col md={4} />
@@ -213,7 +187,7 @@ export default function Order() {
       <Row>
         <Col md={4} />
         <Col md={4}>
-          <hr style={{ marginTop: "5px", marginBottom: "20px" }} />
+          <hr />
         </Col>
         <Col md={4} />
       </Row>
@@ -221,17 +195,21 @@ export default function Order() {
       <Row>
         <Col md={4} />
         <Col md={2}>
-          <SiparisAdet onQuantityChange={handleQuantityChange} />
-        </Col>
-        <Col md={2}>
-          <CardComp
-            isDisabled={isOrderButtonDisabled}
-            handleSubmit={handleSubmit}
-            selectedPrice={selectedPrice ? selectedPrice.price : 0}
-            totalPrice={totalPrice} //
+          <SiparisAdet
+            quantity={orderDetails.quantity}
+            handleIncrease={handleIncrease}
+            handleDecrease={handleDecrease}
           />
         </Col>
-        <Col md={4} />
+        <Col md={2} style={{ position: "relative", left: "-20px" }}>
+          <CardComp
+            selectedPrice={orderDetails.selectedPrice}
+            totalPrice={orderDetails.totalPrice}
+            handleSubmit={handleSubmit}
+            isDisabled={isOrderButtonDisabled}
+          />
+        </Col>
+        <Col md={2} />
       </Row>
 
       <Footer />

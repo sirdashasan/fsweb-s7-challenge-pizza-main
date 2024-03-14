@@ -1,6 +1,6 @@
 import { FormGroup, Input, Label } from "reactstrap";
 
-function SiparisNotu({ onChange, specialNote }) {
+function SiparisNotu({ handleNoteChange, note }) {
   return (
     <div style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}>
       <div>
@@ -8,12 +8,11 @@ function SiparisNotu({ onChange, specialNote }) {
           <Label for="siparisNotu">Sipariş Notu:</Label>
           <Input
             id="siparisNotu"
-            name="text"
+            name="note"
             type="textarea"
             rows="2"
             placeholder="Siparişine eklemek istediğin bir not var mı?"
-            value={specialNote}
-            onChange={onChange}
+            onChange={handleNoteChange}
             style={{
               height: "40px",
               backgroundColor: "#FAF7F2",
@@ -23,7 +22,9 @@ function SiparisNotu({ onChange, specialNote }) {
               fontSize: "12px",
             }}
             data-cy="not-input"
-          />
+          >
+            {note}
+          </Input>
         </FormGroup>
       </div>
     </div>

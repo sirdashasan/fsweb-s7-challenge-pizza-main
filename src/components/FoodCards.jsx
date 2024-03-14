@@ -14,7 +14,12 @@ function FoodCards({ imageSrc, name, price, id }) {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/order/${id}`);
+    history.push(`/order/${id}`, {
+      order: {
+        name,
+        price,
+      },
+    });
   };
 
   return (

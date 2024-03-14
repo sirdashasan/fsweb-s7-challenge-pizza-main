@@ -1,6 +1,6 @@
 import { FormGroup, Input, Label } from "reactstrap";
 
-function NameInput({ onChange, nameError }) {
+function NameInput({ handleNameChange, name }) {
   return (
     <div
       style={{ fontFamily: "Roboto Condensed", fontWeight: "bold" }}
@@ -9,15 +9,16 @@ function NameInput({ onChange, nameError }) {
       <FormGroup>
         <Label for="name">
           <div className="ad-error">
-            İsim: {nameError && <span className="text-danger">*</span>}
+            İsim: {name.length < 4 && <span className="text-danger">*</span>}
           </div>
         </Label>
         <Input
           id="name"
           name="name"
+          value={name}
           placeholder="Siparişini tamamlamak için adını girmelisin"
           type="text"
-          onChange={onChange}
+          onChange={handleNameChange}
           data-cy="ad-input"
           style={{
             height: "40px",
