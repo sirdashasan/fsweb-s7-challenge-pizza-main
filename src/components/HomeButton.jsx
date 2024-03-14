@@ -40,6 +40,7 @@ function HomeButton() {
           e.currentTarget.style.color = "#292929";
         }}
         onClick={handleClick}
+        data-cy="home-button"
       >
         ACIKTIM
       </Button>

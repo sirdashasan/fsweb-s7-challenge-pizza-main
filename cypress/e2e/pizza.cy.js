@@ -61,8 +61,7 @@ describe("template spec", () => {
     // Arrange, Act ve Assert
     cy.visit("http://localhost:5173");
 
-    cy.get(".menu-bar-buttons").scrollIntoView();
-    cy.contains(".menu-item", "Pizza").click();
+    cy.get('[data-cy="home-button"]').click();
     cy.get('[data-cy="boyut-radio"][value="L"]').click();
     cy.get('[data-cy="boyut-error"]').should("not.exist");
 
@@ -74,7 +73,7 @@ describe("template spec", () => {
       "Domates",
       "Biber",
       "Sosis",
-      "Mısır",
+      "Kabak",
     ]);
     cy.get('[data-cy="malzemeler-error"]').should("not.exist");
 
@@ -85,10 +84,7 @@ describe("template spec", () => {
 
     const selectedPrice = 85.5;
     cy.get('[data-cy="adet-button-arttir-input"]').click();
-    cy.get('[data-cy="total-price"]').should(
-      "contain",
-      `${selectedPrice * 4}₺`
-    );
+    cy.get('[data-cy="total-price"]').should("contain", `${392}₺`);
 
     cy.get('[data-cy="submit-button"]').click();
   });

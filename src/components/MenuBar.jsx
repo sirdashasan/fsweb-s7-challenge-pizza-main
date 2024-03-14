@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { ScrollToTopButton, scrollToTop } from "./ScrollToTopButton";
 import Products from "./Products";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 
 function MenuBar({ id, name, price }) {
   const history = useHistory();
 
-  const handleClick = () => {
+  const handleClick = (id, name, price) => {
     history.push(`/order/${id}`, {
       order: {
         name,
@@ -60,7 +60,7 @@ function MenuBar({ id, name, price }) {
             textDecoration: "none",
           }}
           onClick={() => {
-            handleClick();
+            handleClick(item.id, item.name, item.price);
             scrollToTop();
           }}
         >
