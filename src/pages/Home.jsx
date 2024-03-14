@@ -16,31 +16,29 @@ export default function Anasayfa() {
   const [active, setActive] = useState("Pizza");
 
   return (
-    <div>
-      <div className="home-container">
+    <main>
+      <header className="home-container">
         <Header />
         <HomeYazisi />
         <HomeButton />
-      </div>
+      </header>
 
-      <div style={{ backgroundColor: "#FAF7F2" }}>
-        <Row>
-          <Col md={3} />
-          <MenuBar />
-          <Col md={9} />
-        </Row>
+      <section style={{ backgroundColor: "#FAF7F2" }}>
+        <nav>
+          <Row>
+            <Col md={3} />
+            <MenuBar />
+            <Col md={9} />
+          </Row>
+        </nav>
 
-        <div>
-          <div>
-            <PizzaCard />
-          </div>
-          <div>
-            <BurgerCard />
-            <KuryeCard />
-          </div>
-        </div>
+        <section>
+          <PizzaCard />
+          <BurgerCard />
+          <KuryeCard />
+        </section>
 
-        <div
+        <section
           style={{
             textAlign: "center",
             marginTop: "0px",
@@ -66,7 +64,7 @@ export default function Anasayfa() {
           >
             Acıktıran Kodlara Doyuran Lezzetler
           </span>
-        </div>
+        </section>
 
         <MenuBarButtons active={active} setActive={setActive} />
         <div
@@ -82,7 +80,7 @@ export default function Anasayfa() {
           {Products.map(
             (product, index) =>
               active === product.type && (
-                <div
+                <section
                   key={product.id}
                   style={{
                     width: "30%",
@@ -91,7 +89,6 @@ export default function Anasayfa() {
                   }}
                 >
                   <FoodCards
-                    key={product.id}
                     imageSrc={product.image}
                     name={product.name}
                     price={product.price}
@@ -99,17 +96,15 @@ export default function Anasayfa() {
                     comment={product.comment}
                     id={product.id}
                   />
-
-                  {(index + 1) % 3 === 0 && (
-                    <div style={{ clear: "both" }}></div>
-                  )}
-                </div>
+                </section>
               )
           )}
         </div>
+      </section>
 
+      <footer>
         <Footer />
-      </div>
-    </div>
+      </footer>
+    </main>
   );
 }

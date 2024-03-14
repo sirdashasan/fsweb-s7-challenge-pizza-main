@@ -120,99 +120,110 @@ export default function Order() {
   console.log(orderDetails);
 
   return (
-    <div className="d-flex  flex-column">
-      <div className="order-header-container">
+    <main className="d-flex flex-column">
+      <header className="order-header-container">
         <Header />
-      </div>
+      </header>
 
-      <Row className="mt-3 order-yazilar-container">
-        <Col md={4} />
-        <Col md={4}>
-          <OrderYazilar
-            selectedPrice={orderDetails.totalPrice} // selectedprice değiştim
-            selectedProduct={orderDetails?.selectedProduct}
-          />
-        </Col>
-        <Col md={4} />
-      </Row>
+      <section className="mt-3 order-yazilar-container">
+        <Row>
+          <Col md={4} />
+          <Col md={4}>
+            <OrderYazilar
+              selectedPrice={orderDetails.totalPrice}
+              selectedProduct={orderDetails?.selectedProduct}
+            />
+          </Col>
+          <Col md={4} />
+        </Row>
+      </section>
 
-      <Row className="mt-3">
-        <Col md={4} />
-        <Col md={2}>
-          <PizzaBoyutu
-            size={orderDetails.size}
-            handleSizeChange={handleChange}
-          />
-        </Col>
+      <section className="mt-3 order-options">
+        <Row>
+          <Col md={4} />
+          <Col md={2}>
+            <PizzaBoyutu
+              size={orderDetails.size}
+              handleSizeChange={handleChange}
+            />
+          </Col>
 
-        <Col md={2}>
-          <HamurSecimi
-            dough={orderDetails.dough}
-            handleDoughChange={handleChange}
-          />
-        </Col>
-        <Col md={4} />
-      </Row>
+          <Col md={2}>
+            <HamurSecimi
+              dough={orderDetails.dough}
+              handleDoughChange={handleChange}
+            />
+          </Col>
+          <Col md={4} />
+        </Row>
+      </section>
 
-      <Row className="order-malzemeler">
-        <Col md={4} />
-        <Col md={4}>
-          <Malzemeler
-            ingredients={orderDetails.ingredients}
-            handleIngredientsChange={handleIngredientsChange}
-          />
-        </Col>
-        <Col md={4} />
-      </Row>
+      <section className="order-malzemeler">
+        <Row>
+          <Col md={4} />
+          <Col md={4}>
+            <Malzemeler
+              ingredients={orderDetails.ingredients}
+              handleIngredientsChange={handleIngredientsChange}
+            />
+          </Col>
+          <Col md={4} />
+        </Row>
+      </section>
 
-      <Row className="order-name">
-        <Col md={4} />
-        <Col md={4}>
-          <NameInput name={orderDetails.name} handleNameChange={handleChange} />
-        </Col>
-        <Col md={4} />
-      </Row>
+      <section className="order-name">
+        <Row>
+          <Col md={4} />
+          <Col md={4}>
+            <NameInput
+              name={orderDetails.name}
+              handleNameChange={handleChange}
+            />
+          </Col>
+          <Col md={4} />
+        </Row>
+      </section>
 
-      <Row class="order-not">
-        <Col md={4} />
-        <Col md={4}>
-          <SiparisNotu
-            note={orderDetails.note}
-            handleNoteChange={handleChange}
-          />
-        </Col>
-        <Col md={4} />
-      </Row>
+      <section className="order-note">
+        <Row>
+          <Col md={4} />
+          <Col md={4}>
+            <SiparisNotu
+              note={orderDetails.note}
+              handleNoteChange={handleChange}
+            />
+          </Col>
+          <Col md={4} />
+        </Row>
+      </section>
 
-      <Row>
-        <Col md={4} />
-        <Col md={4}>
-          <hr />
-        </Col>
-        <Col md={4} />
-      </Row>
+      <hr />
 
-      <Row>
-        <Col md={4} />
-        <Col md={2}>
-          <SiparisAdet
-            quantity={orderDetails.quantity}
-            handleIncrease={handleIncrease}
-            handleDecrease={handleDecrease}
-          />
-        </Col>
-        <Col md={2} style={{ position: "relative", left: "-20px" }}>
-          <CardComp
-            selectedPrice={orderDetails.selectedPrice}
-            totalPrice={orderDetails.totalPrice}
-            handleSubmit={handleSubmit}
-            isDisabled={isOrderButtonDisabled}
-          />
-        </Col>
-        <Col md={2} />
-      </Row>
+      <section className="order-details">
+        <Row>
+          <Col md={4} />
+          <Col md={2}>
+            <SiparisAdet
+              quantity={orderDetails.quantity}
+              handleIncrease={handleIncrease}
+              handleDecrease={handleDecrease}
+            />
+          </Col>
+          <Col md={2} style={{ position: "relative", left: "-20px" }}>
+            <CardComp
+              selectedPrice={orderDetails.selectedPrice}
+              totalPrice={orderDetails.totalPrice}
+              handleSubmit={handleSubmit}
+              isDisabled={isOrderButtonDisabled}
+            />
+          </Col>
+          <Col md={2} />
+        </Row>
+      </section>
 
-      <Footer />
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </main>
   );
 }

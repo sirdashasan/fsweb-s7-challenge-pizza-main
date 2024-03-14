@@ -6,7 +6,9 @@ function HamurSecimi({ dough, handleDoughChange }) {
         className="hamur-title"
       >
         <div>
-          <p>Hamur Seç {!dough && <span className="text-danger">*</span>}</p>
+          <p style={{ fontSize: "15px" }}>
+            Hamur Seç {!dough && <span className="text-danger">*</span>}
+          </p>
         </div>
       </div>
       <div>

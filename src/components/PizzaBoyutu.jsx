@@ -1,29 +1,6 @@
 import { useRef, useState } from "react";
 
 function PizzaBoyutu({ handleSizeChange, size }) {
-  // Önceki seçeneği seçebilmek için
-
-  // const handleButtonClick = (e) => {
-  //   // Tıklanan butonun arka plan rengi değişsin
-  //   e.currentTarget.style.backgroundColor = "#292929";
-  //   e.currentTarget.style.color = "white";
-
-  //   // Önceki seçeneğin arka plan rengini ilk rengine döndür
-  //   if (
-  //     prevSelectedButtonRef.current &&
-  //     prevSelectedButtonRef.current !== e.currentTarget
-  //   ) {
-  //     prevSelectedButtonRef.current.style.backgroundColor = "#FAF7F2";
-  //     prevSelectedButtonRef.current.style.color = "#292929";
-  //   }
-
-  //   // Önceki seçeneği güncelle
-  //   prevSelectedButtonRef.current = e.currentTarget;
-
-  //   setError(false);
-  //   onChange(e.currentTarget.value);
-  // };
-
   return (
     <div>
       <div className="boyut-title">
