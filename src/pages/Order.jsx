@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import HizliTeslimat from "../components/HizliTeslimat";
 
 export default function Order() {
   const location = useLocation();
@@ -30,6 +31,7 @@ export default function Order() {
     selectedPrice: 0,
     totalPrice: order?.price,
     quantity: 1,
+    rapidly: false,
   });
 
   const history = useHistory();
@@ -56,6 +58,13 @@ export default function Order() {
         ingredients: [...orderDetails.ingredients, e.target.value],
       });
     }
+  };
+
+  const handleRapidlyChange = (e) => {
+    setOrderDetails({
+      ...orderDetails,
+      rapidly: e.target.checked,
+    });
   };
 
   const handleIncrease = (e) => {
@@ -86,16 +95,27 @@ export default function Order() {
 
     const ingredientsPrice =
       orderDetails.ingredients.length * 5 * orderDetails.quantity;
+    let totalPrice = newPrice * orderDetails.quantity + ingredientsPrice;
+
+    if (orderDetails.rapidly) {
+      totalPrice += 50;
+    }
+
     setOrderDetails({
       ...orderDetails,
       selectedPrice: ingredientsPrice,
-      totalPrice: newPrice * orderDetails.quantity + ingredientsPrice,
+      totalPrice: totalPrice,
     });
   };
 
   useEffect(() => {
     calculatePrice();
-  }, [orderDetails.size, orderDetails.ingredients, orderDetails.quantity]);
+  }, [
+    orderDetails.size,
+    orderDetails.ingredients,
+    orderDetails.quantity,
+    orderDetails.rapidly,
+  ]);
 
   const handleSubmit = async () => {
     try {
@@ -192,6 +212,16 @@ export default function Order() {
               note={orderDetails.note}
               handleNoteChange={handleChange}
             />
+          </Col>
+          <Col md={4} />
+        </Row>
+      </section>
+
+      <section>
+        <Row>
+          <Col md={4} />
+          <Col md={4}>
+            <HizliTeslimat handleRapidDeliveryChange={handleRapidlyChange} />
           </Col>
           <Col md={4} />
         </Row>

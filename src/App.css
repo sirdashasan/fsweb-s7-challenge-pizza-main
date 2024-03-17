@@ -600,6 +600,14 @@
   margin-right: 10px;
 }
 
+.hizli-teslimat {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  color: #5f5f5f;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
 /*aaaaaaaaaaaaaaaaaaa */
 
 input[type="checkbox"] {
