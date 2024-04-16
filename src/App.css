@@ -732,7 +732,7 @@ hr.line {
 }
 
 .home-container {
-  background-image: url("public/assets/mile1-assets/home-banner.png");
+  background-image: url("public/assets/mile1_assets/home_banner.png");
   background-color: #faf7f2;
   color: white;
   min-height: 100vh;
